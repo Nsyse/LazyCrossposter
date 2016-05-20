@@ -43,6 +43,7 @@ public class PathSubmissionFormElement extends SubmissionFormElement {
     }
 
     public String selectFilePath(){
+        //REPLACE THIS PATH:
         JFileChooser fileChooser = new JFileChooser("D:\\Users\\Nsyse\\Pictures\\");
         FileNameExtensionFilter filter = new FileNameExtensionFilter("png Images", "png");
         fileChooser.setFileFilter(filter);
