@@ -1,0 +1,56 @@
+package ca.nsyse.SubmissionForms.ArtSubmissionForm.SubmissionFormElements;
+
+import ca.nsyse.SubmissionForms.ArtSubmissionForm.ArtFormFillerFrame;
+import ca.nsyse.SubmissionForms.ArtSubmissionForm.SelectAllTextOnClickMouseAdapter;
+
+import javax.swing.*;
+import java.awt.*;
+import java.util.ArrayList;
+import java.util.Collections;
+import java.util.HashSet;
+import java.util.Set;
+
+/**
+ * Created by Nsyse on 2016-03-27.
+ */
+public class TagsSubmissionFormElement extends SubmissionFormElement {
+
+    private JTextField tagsField = new JTextField();
+    private String defaultTagFieldText = "<Enter tags here>";
+
+    public TagsSubmissionFormElement(ArtFormFillerFrame listeningFrame) {
+        super(listeningFrame);
+        //Prepare title
+        JLabel titleLabel = new JLabel("Submission tags");
+        titleLabel.setAlignmentX(Component.CENTER_ALIGNMENT);
+        //Add title
+        this.add(titleLabel);
+
+        //Prepare tag fields Panel
+        tagsField.setText(defaultTagFieldText);
+        tagsField.addMouseListener(new SelectAllTextOnClickMouseAdapter(tagsField));
+        this.add(tagsField);
+
+    }
+
+    public ArrayList<String> getAllTags(){
+        String[] tags = tagsField.getText().split("[\\s,]+");
+        ArrayList<String> rv = new ArrayList<>();
+        Collections.addAll(rv, tags);
+        return rv;
+    }
+
+    @Override
+    public String validateFields() {
+        String errorMessage ="";
+        ArrayList<String> tags = getAllTags();
+        Set<String> tagsSet = new HashSet<String>(tags);
+        if(tags.size()<=1){
+            errorMessage ="- At least two tags are needed!";
+        }
+        if (tagsSet.size() < tags.size()){
+            errorMessage="- Duplicate tags were found!";
+        }
+        return errorMessage;
+    }
+}
