@@ -4,6 +4,7 @@ import ca.nsyse.SubmissionForms.ArtSubmissionForm.FormFrame;
 
 import javax.swing.*;
 import java.util.ArrayList;
+import java.util.HashMap;
 
 /**
  * Created by Nsyse on 2016-03-29.
@@ -11,18 +12,19 @@ import java.util.ArrayList;
 public class WebsitesSelectFormElement extends SubmissionFormElement {
 
     private ArrayList<WebsiteSelector> selectors = new ArrayList<>();
+    protected static final String defaultCodes = "abcdef";
 
     public WebsitesSelectFormElement(FormFrame listeningFrame) {
         super(listeningFrame);
 
         this.setLayout(new BoxLayout(this, BoxLayout.X_AXIS));
 
-        addSelector(new WebsiteSelector("DeviantArt"));
-        addSelector(new WebsiteSelector("Furaffinity"));
-        addSelector(new WebsiteSelector("Weasyl"));
-        addSelector(new WebsiteSelector("Furiffic"));
-        addSelector(new WebsiteSelector("SoFurry"));
-        addSelector(new WebsiteSelector("InkBunny"));
+        addSelector(new WebsiteSelector("DeviantArt", "a"));
+        addSelector(new WebsiteSelector("Furaffinity", "b"));
+        addSelector(new WebsiteSelector("Weasyl", "c"));
+        addSelector(new WebsiteSelector("Furiffic", "d"));
+        addSelector(new WebsiteSelector("SoFurry", "e"));
+        addSelector(new WebsiteSelector("InkBunny", "f"));
     }
 
     @Override

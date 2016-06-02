@@ -3,6 +3,7 @@ package ca.nsyse.Generators.JournalBlogPostGenerators;
 import ca.nsyse.PathChooser;
 
 import java.io.BufferedWriter;
+import java.io.File;
 import java.io.FileWriter;
 import java.io.IOException;
 
@@ -18,7 +19,10 @@ public class DAJournalGenerator extends BlogPostGenerator{
     public void overwriteSeleniumTest() {
         BufferedWriter outStream = null;
         try {
-            outStream = new BufferedWriter(new FileWriter(PathChooser.defaultPath + this.getWebsiteName() + " journal upload " + this.getJournalTitle() + " ready test.html"));
+
+            outStream = new BufferedWriter(new FileWriter(
+                    PathChooser.getDefaultPath() + File.separator + this.getWebsiteName()
+                            + "_journal_upload " + this.getJournalTitle() + "_ready_test.html"));
             outStream.write("<?xml version=\"1.0\" encoding=\"UTF-8\"?>");
             outStream.newLine();
             outStream.write("<!DOCTYPE html PUBLIC \"-//W3C//DTD XHTML 1.0 Strict//EN\" \"http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd\">");
