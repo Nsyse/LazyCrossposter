@@ -7,10 +7,9 @@ import java.util.ArrayList;
  */
 public class SeleniumTestSuiteGenerator {
 
-    protected ArrayList<GeneratesTest> seleniumGenerators;
+    protected ArrayList<GeneratesTest> seleniumGenerators = new ArrayList<>();;
 
     public SeleniumTestSuiteGenerator(){
-        seleniumGenerators = new ArrayList<>();
     }
 
     protected void generateSeleniumScripts(ArrayList<String> websitesNames) {

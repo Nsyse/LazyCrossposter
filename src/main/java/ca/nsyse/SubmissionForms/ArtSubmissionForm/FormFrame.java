@@ -12,10 +12,9 @@ import java.util.ArrayList;
 public abstract class FormFrame extends JFrame {
 
     private boolean readyForUpload = false;
-    protected ArrayList<SubmissionFormElement> formElements;
+    protected ArrayList<SubmissionFormElement> formElements = new ArrayList<>();;
 
     public FormFrame(){
-        formElements = new ArrayList<>();
     }
     /**
      *

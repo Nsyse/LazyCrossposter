@@ -16,6 +16,11 @@ public class ContentRatingSelectFormElement extends SubmissionFormElement {
     JLabel indicatorLabel;
     ButtonGroup contentRatingOptions;
 
+    private JRadioButton generalOption;
+    private JRadioButton teenOption;
+    private JRadioButton matureOption;
+    private JRadioButton adultOption;
+
     public ContentRatingSelectFormElement(FormFrame listeningFrame) {
         super(listeningFrame);
 
@@ -25,48 +30,32 @@ public class ContentRatingSelectFormElement extends SubmissionFormElement {
 
         this.setLayout(new BoxLayout(this, BoxLayout.X_AXIS));
 
-        JRadioButton generalOption = new JRadioButton("G");
+        generalOption = new JRadioButton("G");
         generalOption.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                if(generalOption.isSelected()){
-                    indicatorLabel.setBackground(new Color(37, 174, 64));
-                    indicatorLabel.setText("General");
-                    requestUIUpdate();
-                }
+                updateContentRatingIndicator();
             }
         });
-        JRadioButton teenOption = new JRadioButton("T");
+        teenOption = new JRadioButton("T");
         teenOption.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                if(teenOption.isSelected()) {
-                    indicatorLabel.setBackground(new Color(201, 205, 58));
-                    indicatorLabel.setText("Teen (13+)");
-                    requestUIUpdate();
-                }
+                updateContentRatingIndicator();
             }
         });
-        JRadioButton matureOption = new JRadioButton("M");
+        matureOption = new JRadioButton("M");
         matureOption.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                if(matureOption.isSelected()) {
-                    indicatorLabel.setBackground(new Color(218, 128, 43));
-                    indicatorLabel.setText("Mature");
-                    requestUIUpdate();
-                }
+                updateContentRatingIndicator();
             }
         });
-        JRadioButton adultOption = new JRadioButton("A");
+        adultOption = new JRadioButton("A");
         adultOption.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                if(adultOption.isSelected()) {
-                    indicatorLabel.setBackground(new Color(174, 54, 57));
-                    indicatorLabel.setText("Adult");
-                    requestUIUpdate();
-                }
+                updateContentRatingIndicator();
             }
         });
 
@@ -82,6 +71,30 @@ public class ContentRatingSelectFormElement extends SubmissionFormElement {
         this.add(teenOption);
         this.add(matureOption);
         this.add(adultOption);
+    }
+
+    private void updateContentRatingIndicator(){
+        String indicatorText = "";
+        Color indicatorColor = new Color(255,255,255);
+        if(generalOption.isSelected()){
+            indicatorColor = new Color(37, 174, 64);
+            indicatorText = "General";
+        }
+        else if(teenOption.isSelected()) {
+            indicatorColor = new Color(201, 205, 58);
+            indicatorText = "Teen (13+)";
+        }
+        else if(matureOption.isSelected()) {
+            indicatorColor = new Color(218, 128, 43);
+            indicatorText = "Mature";
+        }
+        else if(adultOption.isSelected()) {
+            indicatorColor = new Color(174, 54, 57);
+            indicatorText = "Adult";
+        }
+        indicatorLabel.setBackground(indicatorColor);
+        indicatorLabel.setText(indicatorText);
+        requestUIUpdate();
     }
 
     @Override
