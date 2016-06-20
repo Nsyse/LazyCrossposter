@@ -22,7 +22,7 @@ public final class DAArtGenerator extends AbstractArtSeleniumOverwriter {
         try {
             outStream = new BufferedWriter(new FileWriter(
                     PathChooser.getDefaultPath() + File.separator + this.getWebsiteName()
-                            + "_journal_upload " + this.getSubmissionTitle() + "_ready_test.html"));
+                            + " upload " + this.getSubmissionTitle() + "_ready_test.html"));
             outStream.write("<?xml version=\"1.0\" encoding=\"UTF-8\"?>");
             outStream.newLine();
             outStream.write("<!DOCTYPE html PUBLIC \"-//W3C//DTD XHTML 1.0 Strict//EN\" \"http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd\">");

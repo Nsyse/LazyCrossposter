@@ -60,7 +60,7 @@ public class SeleniumArtTestSuiteGenerator extends SeleniumTestSuiteGenerator {
             outStream.write("<tr><td><b>Test Suite</b></td></tr>");
             outStream.newLine();
             for (String websiteName : websitesNames) {
-                outStream.write("<tr><td><a href=\""+websiteName+" upload "+ submissionName+" ready test.html\">" + websiteName + " upload " + submissionName+" ready test</a></td></tr>");
+                outStream.write("<tr><td><a href=\""+websiteName+" upload "+ submissionName+"_ready_test.html\">" + websiteName + " upload " + submissionName+" ready test</a></td></tr>");
                 outStream.newLine();
             }
             outStream.write("</tbody></table>");

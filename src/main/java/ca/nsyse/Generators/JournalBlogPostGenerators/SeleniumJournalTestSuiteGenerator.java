@@ -54,7 +54,7 @@ public class SeleniumJournalTestSuiteGenerator extends SeleniumTestSuiteGenerato
             outStream.write("<tr><td><b>Test Suite</b></td></tr>");
             outStream.newLine();
             for (String websiteName : websitesNames) {
-                outStream.write("<tr><td><a href=\""+websiteName+" journal upload "+journalTitle+" ready test.html\">"+websiteName+" journal upload "+journalTitle+" ready test</a></td></tr>");
+                outStream.write("<tr><td><a href=\""+websiteName+"_journal_upload "+journalTitle+"_ready_test.html\">"+websiteName+"_journal_upload "+journalTitle+"_ready_test</a></td></tr>");
                 outStream.newLine();
             }
             outStream.write("</tbody></table>");
