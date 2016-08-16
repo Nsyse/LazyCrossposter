@@ -131,6 +131,7 @@ public class WeasylArtGenerator extends AbstractArtSeleniumOverwriter {
             outStream.newLine();
             outStream.write("</tr>");
             outStream.newLine();
+            /* Preferences
             outStream.write("<tr>");
             outStream.newLine();
             outStream.write("	<td>select</td>");
@@ -161,6 +162,7 @@ public class WeasylArtGenerator extends AbstractArtSeleniumOverwriter {
             outStream.newLine();
             outStream.write("</tr>");
             outStream.newLine();
+            */
             outStream.write("<tr>");
             outStream.newLine();
             outStream.write("	<td>type</td>");
@@ -208,6 +210,7 @@ public class WeasylArtGenerator extends AbstractArtSeleniumOverwriter {
             outStream.newLine();
             outStream.write("</tr>");
             outStream.newLine();
+            /*
             outStream.write("<tr>");
             outStream.newLine();
             outStream.write("	<td>click</td>");
@@ -217,6 +220,7 @@ public class WeasylArtGenerator extends AbstractArtSeleniumOverwriter {
             outStream.write("	<td></td>");
             outStream.newLine();
             outStream.write("</tr>");
+            */
             String contentRating = this.getContentRating();
             outStream.write("<tr>");
             outStream.newLine();

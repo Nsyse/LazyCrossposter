@@ -57,6 +57,7 @@ public class FormChoosingFrame extends JFrame {
         uploadJournal.setAlignmentX(Component.CENTER_ALIGNMENT);
         panel.add(uploadJournal);
 
+        /*
         //Configure
         JButton configureButton = new JButton("Configure");
         configureButton.addActionListener(new ActionListener() {
@@ -67,6 +68,7 @@ public class FormChoosingFrame extends JFrame {
         });
         configureButton.setAlignmentX(Component.CENTER_ALIGNMENT);
         panel.add(configureButton);
+        */
 
         return panel;
     }

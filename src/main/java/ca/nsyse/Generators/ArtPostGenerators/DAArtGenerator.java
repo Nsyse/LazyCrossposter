@@ -181,6 +181,8 @@ public final class DAArtGenerator extends AbstractArtSeleniumOverwriter {
             outStream.newLine();
             outStream.write("<tr>");
             outStream.newLine();
+            //Hardcoded prefs
+            /*
             outStream.write("	<td>click</td>");
             outStream.newLine();
             outStream.write("	<td>link=Anthro</td>");
@@ -231,6 +233,7 @@ public final class DAArtGenerator extends AbstractArtSeleniumOverwriter {
             outStream.newLine();
             outStream.write("<tr>");
             outStream.newLine();
+            */
             outStream.write("	<td>click</td>");
             outStream.newLine();
             outStream.write("	<td>css=span.subtext</td>");

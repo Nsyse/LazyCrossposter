@@ -156,6 +156,8 @@ public class FAArtGenerator extends AbstractArtSeleniumOverwriter {
             outStream.newLine();
             outStream.write("</tr>");
             outStream.newLine();
+            /*
+            Hardcoded preferences
             outStream.write("<tr>");
             outStream.newLine();
             outStream.write("	<td>select</td>");
@@ -178,6 +180,7 @@ public class FAArtGenerator extends AbstractArtSeleniumOverwriter {
             outStream.newLine();
             outStream.write("<tr>");
             outStream.newLine();
+            */
             outStream.write("	<td>click</td>");
             outStream.newLine();
             outStream.write("	<td>id=rating-type-general</td>");
