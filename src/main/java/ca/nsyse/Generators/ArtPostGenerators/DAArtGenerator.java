@@ -240,16 +240,6 @@ public final class DAArtGenerator extends AbstractArtSeleniumOverwriter {
             outStream.write("</tr>");
             outStream.newLine();
             outStream.write("<tr>");
-            outStream.newLine();
-            outStream.write("	<td>click</td>");
-            outStream.newLine();
-            outStream.write("	<td>//input[@value='47796451']</td>");
-            outStream.newLine();
-            outStream.write("	<td></td>");
-            outStream.newLine();
-            outStream.write("</tr>");
-            outStream.newLine();
-            outStream.write("<tr>");
 
             String contentRating = getContentRating();
             if (contentRating.equals("G")||contentRating.equals("T")){

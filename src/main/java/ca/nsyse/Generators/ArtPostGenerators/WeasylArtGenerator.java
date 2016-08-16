@@ -75,7 +75,7 @@ public class WeasylArtGenerator extends AbstractArtSeleniumOverwriter {
             outStream.newLine();
             outStream.write("	<td>selectWindow</td>");
             outStream.newLine();
-            outStream.write("	<td>title=Home — Weasyl</td>");
+            outStream.write("	<td>title=Home &#x2014; Weasyl</td>");
             outStream.newLine();
             outStream.write("	<td></td>");
             outStream.newLine();
