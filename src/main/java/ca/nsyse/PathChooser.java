@@ -9,6 +9,11 @@ public class PathChooser {
 
     private PathChooser(){}
 
+    //TODO: Make this work for other peeps!
+    public static String getLazyGenerateCodePath(){
+        return "D:\\Users\\Nsyse\\Pictures\\Selenium upload script\\Generators\\";
+    }
+
     public static String getDefaultPath() {
         String remembered = PreferencesFriend.getString(PreferencesFriend.PREF_KEY.SELENIUM_SCRIPT_OUTPUT_DIR,
                 null);

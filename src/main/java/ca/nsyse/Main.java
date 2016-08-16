@@ -8,7 +8,7 @@ import java.io.*;
 public class Main {
     public static void main(String[] args) {
         FormChoosingFrame fCF = new FormChoosingFrame();
-        //generateSeleniumCodeGenerator("general");
+        //generateSeleniumCodeGenerator("Tumblr");
    }
 
     /**
@@ -20,7 +20,7 @@ public class Main {
 
         BufferedReader br=null;
         try {
-            br = new BufferedReader(new FileReader(PathChooser.getDefaultPath()+seleniumScriptName+".html"));
+            br = new BufferedReader(new FileReader(PathChooser.getLazyGenerateCodePath()+seleniumScriptName+".html"));
             String line = br.readLine();
 
             BufferedWriter outStream = new BufferedWriter(new FileWriter("Output/output.txt"));
