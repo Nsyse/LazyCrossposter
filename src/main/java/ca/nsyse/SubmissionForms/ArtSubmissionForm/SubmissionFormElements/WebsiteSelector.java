@@ -1,6 +1,6 @@
 package ca.nsyse.SubmissionForms.ArtSubmissionForm.SubmissionFormElements;
 
-import ca.nsyse.PreferencesFriend;
+import ca.nsyse.pkgPreferences.PreferencesFinder;
 
 import javax.swing.*;
 import javax.swing.border.EmptyBorder;
@@ -32,7 +32,7 @@ public class WebsiteSelector extends JPanel implements ActionListener {
         checkBox.setAlignmentX(Component.CENTER_ALIGNMENT);
         checkBox.addActionListener(this);
 
-        String prefconfig = PreferencesFriend.getString(PreferencesFriend.PREF_KEY.DEFAULT_UPLOAD_SITES,
+        String prefconfig = PreferencesFinder.getString(PreferencesFinder.PREF_KEY.DEFAULT_UPLOAD_SITES,
                 WebsitesSelectFormElement.defaultCodes);
         checkBox.setSelected(prefconfig.contains(preferenceCode));
         //Add checkbox
@@ -50,13 +50,13 @@ public class WebsiteSelector extends JPanel implements ActionListener {
 
     @Override
     public void actionPerformed(ActionEvent e) {
-        String config = PreferencesFriend.getString(PreferencesFriend.PREF_KEY.DEFAULT_UPLOAD_SITES,
+        String config = PreferencesFinder.getString(PreferencesFinder.PREF_KEY.DEFAULT_UPLOAD_SITES,
                 WebsitesSelectFormElement.defaultCodes);
         if (!checkBox.isSelected()) {
             config = config.replace(preferenceCode, "");
         } else {
             config = config + preferenceCode;
         }
-        PreferencesFriend.set(PreferencesFriend.PREF_KEY.DEFAULT_UPLOAD_SITES, config);
+        PreferencesFinder.set(PreferencesFinder.PREF_KEY.DEFAULT_UPLOAD_SITES, config);
     }
 }

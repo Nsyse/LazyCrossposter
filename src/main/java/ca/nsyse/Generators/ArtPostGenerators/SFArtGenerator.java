@@ -21,7 +21,7 @@ public final class SFArtGenerator extends AbstractArtSeleniumOverwriter {
         BufferedWriter outStream = null;
         try {
             outStream = new BufferedWriter(new FileWriter(
-                    PathChooser.getDefaultPath() + File.separator + this.getWebsiteName()
+                    PathChooser.getLazyScriptsPath() + File.separator + this.getWebsiteName()
                             + " upload " + this.getSubmissionTitle() + "_ready_test.html"));
             outStream.write("<?xml version=\"1.0\" encoding=\"UTF-8\"?>");
             outStream.newLine();

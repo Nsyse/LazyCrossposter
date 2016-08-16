@@ -1,8 +1,10 @@
 package ca.nsyse.Generators.ArtPostGenerators;
 
+import ca.nsyse.PathChooser;
 import ca.nsyse.SeleniumTestSuiteGenerator;
 import ca.nsyse.SubmissionForms.ArtSubmissionForm.ArtSubmissionFormModel;
 
+import javax.swing.*;
 import java.io.BufferedWriter;
 import java.io.FileWriter;
 import java.io.IOException;
@@ -37,8 +39,9 @@ public class SeleniumArtTestSuiteGenerator extends SeleniumTestSuiteGenerator {
 
     private void generateSuiteFile(ArrayList<String> websitesNames) {
         BufferedWriter outStream = null;
+
         try {
-            outStream = new BufferedWriter(new FileWriter("D:\\Users\\Nsyse\\Pictures\\Selenium upload script\\upload " + submissionName + " suite"));
+            outStream = new BufferedWriter(new FileWriter( PathChooser.getLazyScriptsPath()+ "upload " + submissionName + " suite"));
             outStream.write("<?xml version=\"1.0\" encoding=\"UTF-8\"?>");
             outStream.newLine();
             outStream.write("<!DOCTYPE html PUBLIC \"-//W3C//DTD XHTML 1.0 Strict//EN\" \"http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd\">");
@@ -71,6 +74,7 @@ public class SeleniumArtTestSuiteGenerator extends SeleniumTestSuiteGenerator {
             outStream.newLine();
         } catch (IOException ioe) {
             ioe.printStackTrace();
+            JOptionPane.showMessageDialog(null, "I did not manage to create the scripts!\n", "FUCKK", JOptionPane.INFORMATION_MESSAGE);
         } finally {
             try {
                 outStream.close();

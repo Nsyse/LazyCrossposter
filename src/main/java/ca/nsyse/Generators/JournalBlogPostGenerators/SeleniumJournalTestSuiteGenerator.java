@@ -1,5 +1,6 @@
 package ca.nsyse.Generators.JournalBlogPostGenerators;
 
+import ca.nsyse.PathChooser;
 import ca.nsyse.SeleniumTestSuiteGenerator;
 
 import java.io.BufferedWriter;
@@ -32,7 +33,7 @@ public class SeleniumJournalTestSuiteGenerator extends SeleniumTestSuiteGenerato
     private void generateSuiteFile(ArrayList<String> websitesNames) {
         BufferedWriter outStream = null;
         try {
-            outStream = new BufferedWriter(new FileWriter("D:\\Users\\Nsyse\\Pictures\\Selenium upload script\\Upload all journals"));
+            outStream = new BufferedWriter(new FileWriter(PathChooser.getLazyScriptsPath()+"Upload all journals"));
             outStream.write("<?xml version=\"1.0\" encoding=\"UTF-8\"?>");
             outStream.newLine();
 

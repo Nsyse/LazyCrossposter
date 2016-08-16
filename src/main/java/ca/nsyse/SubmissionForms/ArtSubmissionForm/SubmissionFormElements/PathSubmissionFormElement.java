@@ -1,6 +1,6 @@
 package ca.nsyse.SubmissionForms.ArtSubmissionForm.SubmissionFormElements;
 
-import ca.nsyse.PreferencesFriend;
+import ca.nsyse.pkgPreferences.PreferencesFinder;
 import ca.nsyse.SubmissionForms.ArtSubmissionForm.ArtFormFillerFrame;
 
 import javax.swing.*;
@@ -44,7 +44,7 @@ public class PathSubmissionFormElement extends SubmissionFormElement {
     }
 
     public String selectFilePath(){
-        String rememberedDir = PreferencesFriend.getString(PreferencesFriend.PREF_KEY.IMAGE_DEFAULT_DIR, null);
+        String rememberedDir = PreferencesFinder.getString(PreferencesFinder.PREF_KEY.IMAGE_DEFAULT_DIR, null);
         JFileChooser fileChooser;
         if (rememberedDir != null)
             fileChooser = new JFileChooser(rememberedDir);
@@ -57,7 +57,7 @@ public class PathSubmissionFormElement extends SubmissionFormElement {
         String path = "";
         if(returnVal == JFileChooser.APPROVE_OPTION) {
             path = fileChooser.getSelectedFile().getPath();
-            PreferencesFriend.set(PreferencesFriend.PREF_KEY.IMAGE_DEFAULT_DIR,
+            PreferencesFinder.set(PreferencesFinder.PREF_KEY.IMAGE_DEFAULT_DIR,
                     fileChooser.getSelectedFile().getParentFile().getPath());
             filePath=path;
             selectFileLabel.setText(path);

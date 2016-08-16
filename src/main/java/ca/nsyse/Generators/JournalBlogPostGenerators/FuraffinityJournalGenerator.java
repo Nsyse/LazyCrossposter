@@ -20,7 +20,7 @@ public class FuraffinityJournalGenerator extends BlogPostGenerator {
         BufferedWriter outStream = null;
         try {
             outStream = new BufferedWriter(new FileWriter(
-                    PathChooser.getDefaultPath() + File.separator + this.getWebsiteName()
+                    PathChooser.getLazyScriptsPath() + File.separator + this.getWebsiteName()
                             + "_journal_upload " + this.getJournalTitle() + "_ready_test.html"));
             outStream.write("<?xml version=\"1.0\" encoding=\"UTF-8\"?>");
             outStream.newLine();

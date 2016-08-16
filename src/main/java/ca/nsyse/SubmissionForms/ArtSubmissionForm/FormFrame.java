@@ -33,9 +33,9 @@ public abstract class FormFrame extends JFrame {
             }
         }
 
-        return showErrorsIfAny(errorMessages);
+        return showErrorsOrGGIfAny(errorMessages);
     }
-    private boolean showErrorsIfAny(ArrayList<String> errorMessages){
+    private boolean showErrorsOrGGIfAny(ArrayList<String> errorMessages){
         String completeErrror = "";
         for (String errorMessage : errorMessages){
             if (errorMessage.length()>0){
@@ -49,6 +49,11 @@ public abstract class FormFrame extends JFrame {
         if (completeErrror.length()>0){
             thereWasNoError=false;
             showSubmitErrorMessage(completeErrror);
+        }
+
+        if (thereWasNoError){
+            //Show everything is fine!
+            JOptionPane.showMessageDialog(this, "Yay there was no error in the form elements!", "Everything is fine!", JOptionPane.INFORMATION_MESSAGE);
         }
         return thereWasNoError;
     }

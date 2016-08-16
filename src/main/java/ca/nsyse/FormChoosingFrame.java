@@ -57,6 +57,17 @@ public class FormChoosingFrame extends JFrame {
         uploadJournal.setAlignmentX(Component.CENTER_ALIGNMENT);
         panel.add(uploadJournal);
 
+        //Configure
+        JButton configureButton = new JButton("Configure");
+        configureButton.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                spawnJournalUploader();
+            }
+        });
+        configureButton.setAlignmentX(Component.CENTER_ALIGNMENT);
+        panel.add(configureButton);
+
         return panel;
     }
 
@@ -66,6 +77,10 @@ public class FormChoosingFrame extends JFrame {
 
     private void spawnJournalUploader(){
         JournalFormFillerFrame jFF = new JournalFormFillerFrame();
+    }
+
+    private void spawnConfigureFrame(){
+        ConfigureFrame cF = new ConfigureFrame();
     }
 
 }
