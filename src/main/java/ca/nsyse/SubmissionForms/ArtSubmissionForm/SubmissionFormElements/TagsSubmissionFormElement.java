@@ -43,13 +43,18 @@ public class TagsSubmissionFormElement extends SubmissionFormElement {
     @Override
     public String validateFields() {
         String errorMessage ="";
-        ArrayList<String> tags = getAllTags();
-        Set<String> tagsSet = new HashSet<String>(tags);
-        if(tags.size()<=1){
-            errorMessage ="- At least two tags are needed!";
+        if (! tagsField.getText().equals(defaultTagFieldText)) {
+            ArrayList<String> tags = getAllTags();
+            Set<String> tagsSet = new HashSet<String>(tags);
+            if (tags.size() <= 1) {
+                errorMessage = "- At least two tags are needed!";
+            }
+            if (tagsSet.size() < tags.size()) {
+                errorMessage = "- Duplicate tags were found!";
+            }
         }
-        if (tagsSet.size() < tags.size()){
-            errorMessage="- Duplicate tags were found!";
+        else{
+            errorMessage = "- You forgot to enter tags, dumdum!";
         }
         return errorMessage;
     }

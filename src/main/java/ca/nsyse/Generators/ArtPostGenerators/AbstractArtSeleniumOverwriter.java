@@ -1,6 +1,7 @@
 package ca.nsyse.Generators.ArtPostGenerators;
 
 import ca.nsyse.GeneratesTest;
+import org.apache.commons.lang3.StringEscapeUtils;
 
 import java.util.ArrayList;
 
@@ -20,8 +21,10 @@ public abstract class AbstractArtSeleniumOverwriter implements GeneratesTest {
         return submissionPath;
     }
 
-    public String getSubmissionTitle() {
-        return submissionTitle;
+    public String getEscapedTitleTitle() {
+
+        String escapedTitle = StringEscapeUtils.escapeHtml4(submissionTitle);
+        return escapedTitle;
     }
 
     public ArrayList<String> getTagsList() {
@@ -32,7 +35,8 @@ public abstract class AbstractArtSeleniumOverwriter implements GeneratesTest {
     private String submissionTitle;
 
     public String getSubmissionDescription() {
-        return submissionDescription;
+        String escapedDesc = StringEscapeUtils.escapeHtml4(submissionDescription);
+        return escapedDesc;
     }
 
     private String submissionDescription;

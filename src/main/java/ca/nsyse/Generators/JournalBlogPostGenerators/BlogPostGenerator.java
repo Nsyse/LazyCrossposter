@@ -11,6 +11,8 @@ public abstract class BlogPostGenerator implements GeneratesTest {
     private String journalTitle;
     private String journalDescription;
 
+
+    //TODO: Encode html chars
     public String getWebsiteName() {
         return websiteName;
     }

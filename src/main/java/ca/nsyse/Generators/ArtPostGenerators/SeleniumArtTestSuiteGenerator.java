@@ -41,7 +41,7 @@ public class SeleniumArtTestSuiteGenerator extends SeleniumTestSuiteGenerator {
         BufferedWriter outStream = null;
 
         try {
-            outStream = new BufferedWriter(new FileWriter( PathChooser.getLazyScriptsPath()+ "upload " + submissionName + " suite"));
+            outStream = new BufferedWriter(new FileWriter( PathChooser.getLazyScriptsPath()+ "art upload suite"));
             outStream.write("<?xml version=\"1.0\" encoding=\"UTF-8\"?>");
             outStream.newLine();
             outStream.write("<!DOCTYPE html PUBLIC \"-//W3C//DTD XHTML 1.0 Strict//EN\" \"http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd\">");
@@ -63,7 +63,7 @@ public class SeleniumArtTestSuiteGenerator extends SeleniumTestSuiteGenerator {
             outStream.write("<tr><td><b>Test Suite</b></td></tr>");
             outStream.newLine();
             for (String websiteName : websitesNames) {
-                outStream.write("<tr><td><a href=\""+websiteName+" upload "+ submissionName+"_ready_test.html\">" + websiteName + " upload " + submissionName+" ready test</a></td></tr>");
+                outStream.write("<tr><td><a href=\""+websiteName+" upload_ready_test.html\">" + websiteName + " upload " + submissionName+" ready test</a></td></tr>");
                 outStream.newLine();
             }
             outStream.write("</tbody></table>");
