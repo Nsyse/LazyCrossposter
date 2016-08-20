@@ -13,12 +13,8 @@ public class SeleniumTestSuiteGenerator {
     }
 
     protected void generateSeleniumScripts(ArrayList<String> websitesNames) {
-        for (String websiteName : websitesNames) {
             for (GeneratesTest generator : seleniumGenerators) {
-                if (generator.getWebsiteName() == websiteName) {
                     generator.overwriteSeleniumTest();
-                }
             }
-        }
     }
 }
