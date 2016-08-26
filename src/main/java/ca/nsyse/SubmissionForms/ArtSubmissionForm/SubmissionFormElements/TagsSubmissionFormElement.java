@@ -15,7 +15,7 @@ import java.util.Set;
  */
 public class TagsSubmissionFormElement extends SubmissionFormElement {
 
-    private JTextField tagsField = new JTextField();
+    private SelectableJTextField tagsField;
     private String defaultTagFieldText = "<Enter tags here>";
 
     public TagsSubmissionFormElement(ArtFormFillerFrame listeningFrame) {
@@ -27,7 +27,7 @@ public class TagsSubmissionFormElement extends SubmissionFormElement {
         this.add(titleLabel);
 
         //Prepare tag fields Panel
-        tagsField.setText(defaultTagFieldText);
+        tagsField = new SelectableJTextField(defaultTagFieldText);
         tagsField.addMouseListener(new SelectAllTextOnClickMouseAdapter(tagsField));
         this.add(tagsField);
 

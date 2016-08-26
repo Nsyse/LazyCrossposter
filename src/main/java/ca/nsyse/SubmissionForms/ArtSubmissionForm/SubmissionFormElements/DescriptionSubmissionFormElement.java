@@ -18,7 +18,7 @@ public class DescriptionSubmissionFormElement extends SubmissionFormElement {
     }
 
     private String submissionDescription;
-    private JTextArea descriptionField;
+    private SelectableJTextArea descriptionField;
     private Document areaDocument;
 
     private String defaultDescriptionFieldText = "<Enter description here>";
@@ -28,7 +28,7 @@ public class DescriptionSubmissionFormElement extends SubmissionFormElement {
         JLabel titleLabel = new JLabel("Submission description");
         titleLabel.setAlignmentX(Component.CENTER_ALIGNMENT);
 
-        this.descriptionField = new JTextArea(defaultDescriptionFieldText);
+        this.descriptionField = new SelectableJTextArea(defaultDescriptionFieldText);
         descriptionField.setMaximumSize(descriptionField.getPreferredSize());
         descriptionField.addMouseListener(new SelectAllTextOnClickMouseAdapter(descriptionField));
         descriptionField.setRows(15);
