@@ -1,6 +1,5 @@
 package ca.nsyse.SubmissionForms.ArtSubmissionForm;
 
-import javax.swing.*;
 import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
 
@@ -9,24 +8,16 @@ import java.awt.event.MouseEvent;
  */
 public class SelectAllTextOnClickMouseAdapter extends MouseAdapter {
 
-    private JTextField manipulatedField;
-    private JTextArea manipulatedArea;
+    private CustomTextInputUtil manipulatedTextInput;
 
-    public SelectAllTextOnClickMouseAdapter(JTextField textField){
-        this.manipulatedField = textField;
-    }
-
-    public SelectAllTextOnClickMouseAdapter(JTextArea textArea){
-        this.manipulatedArea = textArea;
+    public SelectAllTextOnClickMouseAdapter(CustomTextInputUtil manipulatedTextInput){
+        this.manipulatedTextInput = manipulatedTextInput;
     }
 
     @Override
     public void mouseClicked(MouseEvent e) {
-        if (manipulatedArea==null){
-            manipulatedField.selectAll();
-        }
-        else{
-            manipulatedArea.selectAll();
+        if (manipulatedTextInput.isUnmodified()){
+            manipulatedTextInput.selectAllText();
         }
     }
 }

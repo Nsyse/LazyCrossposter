@@ -1,5 +1,7 @@
 package ca.nsyse.SubmissionForms.ArtSubmissionForm;
 
+import org.apache.commons.lang3.StringEscapeUtils;
+
 import java.util.ArrayList;
 
 /**
@@ -29,15 +31,16 @@ public class ArtSubmissionFormModel {
     }
 
     public String getSubmissionDescription() {
-        return submissionDescription;
+        String escapedDesc = StringEscapeUtils.escapeHtml4(submissionDescription);
+        return escapedDesc;
     }
-
     public void setSubmissionDescription(String submissionDescription) {
         this.submissionDescription = submissionDescription;
     }
 
     public String getSubmissionTitle() {
-        return submissionTitle;
+        String escapedTitle = StringEscapeUtils.escapeHtml4(submissionTitle);
+        return escapedTitle;
     }
 
     public void setSubmissionTitle(String submissionTitle) {

@@ -146,7 +146,27 @@ public final class SFArtGenerator extends AbstractArtSeleniumOverwriter {
             outStream.newLine();
             outStream.write("</tr>");
             outStream.newLine();
-            outStream.write("");
+
+            outStream.write("<tr>");
+            outStream.newLine();
+            outStream.write("	<td>click</td>");
+            outStream.newLine();
+            String contentRating = getContentRating();
+            if (contentRating.equals("G")||contentRating.equals("T")){
+                outStream.write("	<td>id=UploadForm_contentLevel_0</td>");
+            }
+            else if(contentRating.equals("M")){
+                outStream.write("	<td>id=UploadForm_contentLevel_1</td>");
+            }
+            else if(contentRating.equals("A")){
+                outStream.write("	<td>id=UploadForm_contentLevel_2</td>");
+            }
+
+            outStream.newLine();
+            outStream.write("	<td></td>");
+            outStream.newLine();
+            outStream.write("</tr>");
+
             outStream.newLine();
             outStream.write("</tbody></table>");
             outStream.newLine();

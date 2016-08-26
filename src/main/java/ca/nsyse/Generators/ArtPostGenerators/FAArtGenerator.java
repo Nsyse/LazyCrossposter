@@ -199,7 +199,7 @@ public class FAArtGenerator extends AbstractArtSeleniumOverwriter {
                 outStream.write("	<td>id=rating-type-general</td>");
             }
             else if(contentRating.equals("M")){
-                outStream.write("	<td>id=id=rating-type-mature</td>");
+                outStream.write("	<td>id=rating-type-mature</td>");
             }
             else if(contentRating.equals("A")){
                 outStream.write("	<td>id=rating-type-adult</td>");

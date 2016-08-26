@@ -12,7 +12,7 @@ import java.awt.*;
 public class TitleSubmissionFormElement extends SubmissionFormElement {
 
     private String submissionTitle;
-    private JTextField titleField;
+    private SelectableJTextField titleField;
 
     private String defaultTitleFieldText = "<Enter title here>";
 
@@ -20,7 +20,7 @@ public class TitleSubmissionFormElement extends SubmissionFormElement {
         super(listeningFrame);
         JLabel titleLabel = new JLabel("Submission title");
         titleLabel.setAlignmentX(Component.CENTER_ALIGNMENT);
-        this.titleField = new JTextField(defaultTitleFieldText, 25);
+        this.titleField = new SelectableJTextField(defaultTitleFieldText, 25);
         titleField.setHorizontalAlignment(JTextField.CENTER);
         titleField.setMaximumSize(titleField.getPreferredSize());
         titleField.addMouseListener(new SelectAllTextOnClickMouseAdapter(titleField));
