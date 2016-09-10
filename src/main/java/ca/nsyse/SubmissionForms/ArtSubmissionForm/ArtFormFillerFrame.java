@@ -71,8 +71,14 @@ public class ArtFormFillerFrame extends FormFrame {
                     System.out.println(description);
                 }
                 else if (element instanceof PathSubmissionFormElement){
-                    String path = ((PathSubmissionFormElement)element).getFilePath();
-                    artSubmissionFormModel.setSubmissionPath(path);
+                    PathSubmissionFormElement pathElement = (PathSubmissionFormElement) element;
+                    String path = pathElement.getFilePath();
+                    if (pathElement.isOptional()){
+                        artSubmissionFormModel.setThumbnailPath(path);
+                    }
+                    else{
+                        artSubmissionFormModel.setSubmissionPath(path);
+                    }
                 }
                 else if (element instanceof WebsitesSelectFormElement){
                     ArrayList<String> websitesNames = ((WebsitesSelectFormElement)element).getSelectedWebsites();
@@ -90,12 +96,23 @@ public class ArtFormFillerFrame extends FormFrame {
     private JPanel buildPanel() {
         JPanel panel = new JPanel();
         panel.setLayout(new BoxLayout(panel, BoxLayout.Y_AXIS));
-        addFormElement(new PathSubmissionFormElement(this));
+        addFormElement(new PathSubmissionFormElement(this, false, false));
         addFormElement(new ContentRatingSelectFormElement(this));
         addFormElement(new TitleSubmissionFormElement(this));
         addFormElement(new DescriptionSubmissionFormElement(this));
         addFormElement(new TagsSubmissionFormElement(this));
         addFormElement(new WebsitesSelectFormElement(this));
+
+        this.add(new JSeparator(SwingConstants.HORIZONTAL));
+
+        JLabel optionalSectionLabel = new JLabel("OPTIONAL SECTION");
+        optionalSectionLabel.setAlignmentX(Component.CENTER_ALIGNMENT);
+        this.add(optionalSectionLabel);
+        this.add(new JSeparator(SwingConstants.HORIZONTAL));
+
+        //Adds the thumbnail selector
+        addFormElement(new PathSubmissionFormElement(this, true, true));
+        this.add(new JSeparator(SwingConstants.HORIZONTAL));
         return panel;
     }
 

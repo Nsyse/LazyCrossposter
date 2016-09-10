@@ -10,6 +10,12 @@ import java.util.ArrayList;
  */
 public abstract class AbstractArtSeleniumOverwriter implements GeneratesTest {
 
+    public String getThumbnailPath() {
+        return thumbnailPath;
+    }
+
+    private String thumbnailPath = "";
+
     public String getContentRating() {
         return contentRating;
     }
@@ -49,13 +55,21 @@ public abstract class AbstractArtSeleniumOverwriter implements GeneratesTest {
      * @param submissionDescription
      * @param tagsList
      */
-    public AbstractArtSeleniumOverwriter(String websiteName, String submissionPath, String submissionTitle, String submissionDescription, ArrayList<String> tagsList, String contentRating){
+    public AbstractArtSeleniumOverwriter(String websiteName, String submissionPath, String submissionTitle,
+                                         String submissionDescription, ArrayList<String> tagsList, String contentRating){
         this.websiteName = websiteName;
         this.submissionPath = submissionPath;
         this.submissionTitle = submissionTitle;
         this.tagsList = tagsList;
         this.submissionDescription = submissionDescription;
         this.contentRating = contentRating;
+    }
+
+    public AbstractArtSeleniumOverwriter(String websiteName, String submissionPath, String submissionTitle,
+                                         String submissionDescription, ArrayList<String> tagsList, String contentRating,
+                                         String thumbnailPath){
+        this(websiteName, submissionPath, submissionTitle, submissionDescription, tagsList, contentRating);
+        this.thumbnailPath = thumbnailPath;
     }
 
     public String getWebsiteName() {

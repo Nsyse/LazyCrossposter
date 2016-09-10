@@ -12,8 +12,8 @@ import java.util.ArrayList;
  * Created by Nsyse on 2016-03-27.
  */
 public class FAArtGenerator extends AbstractArtSeleniumOverwriter {
-    public FAArtGenerator(String submissionPath, String submissionTitle, String submissionDescription, ArrayList<String> tagsList, String contentRating) {
-        super("Furaffinity", submissionPath, submissionTitle, submissionDescription, tagsList, contentRating);
+    public FAArtGenerator(String submissionPath, String submissionTitle, String submissionDescription, ArrayList<String> tagsList, String contentRating, String thumbnailPath) {
+        super("Furaffinity", submissionPath, submissionTitle, submissionDescription, tagsList, contentRating, thumbnailPath);
     }
 
     @Override
@@ -108,6 +108,20 @@ public class FAArtGenerator extends AbstractArtSeleniumOverwriter {
             outStream.write("	<td>"+getSubmissionPath()+"</td>");
             outStream.newLine();
             outStream.write("</tr>");
+
+            if (!getThumbnailPath().isEmpty()){
+                outStream.newLine();
+                outStream.write("<tr>");
+                outStream.newLine();
+                outStream.write("	<td>type</td>");
+                outStream.newLine();
+                outStream.write("	<td>name=thumbnail</td>");
+                outStream.newLine();
+                outStream.write("	<td>"+getThumbnailPath()+"</td>");
+                outStream.newLine();
+                outStream.write("</tr>");
+            }
+
             outStream.newLine();
             outStream.write("<tr>");
             outStream.newLine();

@@ -13,8 +13,8 @@ import java.util.ArrayList;
  */
 public class WeasylArtGenerator extends AbstractArtSeleniumOverwriter {
 
-    public WeasylArtGenerator(String submissionPath, String submissionTitle, String submissionDescription, ArrayList<String> tagsList, String contentRating) {
-        super("Weasyl", submissionPath, submissionTitle, submissionDescription, tagsList, contentRating);
+    public WeasylArtGenerator(String submissionPath, String submissionTitle, String submissionDescription, ArrayList<String> tagsList, String contentRating, String thumbnailPath) {
+        super("Weasyl", submissionPath, submissionTitle, submissionDescription, tagsList, contentRating, thumbnailPath);
     }
 
     @Override
@@ -120,6 +120,19 @@ public class WeasylArtGenerator extends AbstractArtSeleniumOverwriter {
             outStream.write("	<td>"+getSubmissionPath()+"</td>");
             outStream.newLine();
             outStream.write("</tr>");
+
+            if (!getThumbnailPath().isEmpty()){
+                outStream.newLine();
+                outStream.write("<tr>");
+                outStream.newLine();
+                outStream.write("	<td>type</td>");
+                outStream.newLine();
+                outStream.write("	<td>id=thumbfile</td>");
+                outStream.newLine();
+                outStream.write("	<td>"+getThumbnailPath()+"</td>");
+                outStream.newLine();
+                outStream.write("</tr>");
+            }
             outStream.newLine();
             outStream.write("<tr>");
             outStream.newLine();

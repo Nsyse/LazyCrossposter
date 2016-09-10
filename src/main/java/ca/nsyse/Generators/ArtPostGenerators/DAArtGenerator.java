@@ -12,8 +12,8 @@ import java.util.ArrayList;
  * Created by Nsyse on 2016-03-26.
  */
 public final class DAArtGenerator extends AbstractArtSeleniumOverwriter {
-    public DAArtGenerator(String submissionPath, String submissionTitle, String submissionDescription, ArrayList<String> tagsList, String contentRating){
-        super("DeviantArt", submissionPath, submissionTitle, submissionDescription, tagsList,contentRating);
+    public DAArtGenerator(String submissionPath, String submissionTitle, String submissionDescription, ArrayList<String> tagsList, String contentRating, String thumbnailPath){
+        super("DeviantArt", submissionPath, submissionTitle, submissionDescription, tagsList,contentRating, thumbnailPath);
     }
 
     @Override

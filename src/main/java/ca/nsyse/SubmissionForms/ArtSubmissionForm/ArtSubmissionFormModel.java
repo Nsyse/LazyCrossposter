@@ -13,8 +13,14 @@ public class ArtSubmissionFormModel {
     private String submissionTitle;
     private String submissionDescription;
     private ArrayList<String> websitesNamesChosen;
-
+    private ArrayList<String> submissionTags;
     private String contentRating;
+
+    public String getThumbnailPath() {
+        return thumbnailPath;
+    }
+
+    private String thumbnailPath;
 
     public ArrayList<String> getSubmissionTags() {
         return submissionTags;
@@ -23,8 +29,6 @@ public class ArtSubmissionFormModel {
     public void setSubmissionTags(ArrayList<String> submissionTags) {
         this.submissionTags = submissionTags;
     }
-
-    private ArrayList<String> submissionTags;
 
     public ArtSubmissionFormModel(){
         submissionTags = new ArrayList<>();
@@ -68,5 +72,9 @@ public class ArtSubmissionFormModel {
     }
     public String getContentRating() {
         return contentRating;
+    }
+
+    public void setThumbnailPath(String thumbnailPath) {
+        this.thumbnailPath = thumbnailPath;
     }
 }

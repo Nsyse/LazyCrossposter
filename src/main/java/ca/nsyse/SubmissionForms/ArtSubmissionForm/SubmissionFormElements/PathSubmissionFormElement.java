@@ -12,9 +12,16 @@ import java.awt.event.ActionListener;
  * Created by Nsyse on 2016-03-27.
  */
 public class PathSubmissionFormElement extends SubmissionFormElement {
-    private String defaultPathFieldText = "<- Select Image Path";
+    private String defaultImagePathFieldText = "<- Select Image Patch";
+    private String defaultThumbnailPathFieldText = "<- Select Thumbnail Patch";
     private JLabel selectFileLabel;
     private JButton selectFileButton;
+
+    public boolean isOptional() {
+        return isOptional;
+    }
+
+    private boolean isOptional;
 
     public String getFilePath() {
         return filePath;
@@ -22,10 +29,12 @@ public class PathSubmissionFormElement extends SubmissionFormElement {
 
     private String filePath;
 
-    public PathSubmissionFormElement(ArtFormFillerFrame listeningFrame){
+    public PathSubmissionFormElement(ArtFormFillerFrame listeningFrame, boolean isOptional, boolean isThumbnail) {
         super(listeningFrame);
 
-        JPanel selectFilePathPanel =  new JPanel();
+        this.isOptional = isOptional;
+
+        JPanel selectFilePathPanel = new JPanel();
         selectFilePathPanel.setLayout(new BoxLayout(selectFilePathPanel, BoxLayout.X_AXIS));
 
         selectFileButton = new JButton("Select File...");
@@ -37,13 +46,18 @@ public class PathSubmissionFormElement extends SubmissionFormElement {
         });
         selectFilePathPanel.add(selectFileButton);
 
-        selectFileLabel = new JLabel(defaultPathFieldText);
+        if(!isThumbnail){
+            selectFileLabel = new JLabel(defaultImagePathFieldText);
+        }
+        else{
+            selectFileLabel = new JLabel(defaultThumbnailPathFieldText);
+        }
         selectFilePathPanel.add(selectFileLabel);
 
         this.add(selectFilePathPanel);
     }
 
-    public String selectFilePath(){
+    public String selectFilePath() {
         String rememberedDir = PreferencesFinder.getString(PreferencesFinder.PREF_KEY.IMAGE_DEFAULT_DIR, null);
         JFileChooser fileChooser;
         if (rememberedDir != null)
@@ -55,11 +69,11 @@ public class PathSubmissionFormElement extends SubmissionFormElement {
         fileChooser.setFileFilter(filter);
         int returnVal = fileChooser.showOpenDialog(null);
         String path = "";
-        if(returnVal == JFileChooser.APPROVE_OPTION) {
+        if (returnVal == JFileChooser.APPROVE_OPTION) {
             path = fileChooser.getSelectedFile().getPath();
             PreferencesFinder.set(PreferencesFinder.PREF_KEY.IMAGE_DEFAULT_DIR,
                     fileChooser.getSelectedFile().getParentFile().getPath());
-            filePath=path;
+            filePath = path;
             selectFileLabel.setText(path);
             selectFileButton.setText("Change selected file...");
             this.requestUIUpdate();
@@ -69,10 +83,14 @@ public class PathSubmissionFormElement extends SubmissionFormElement {
 
     @Override
     public String validateFields() {
-        String errorMessage = "";
-        if(selectFileLabel.getText().equals(defaultPathFieldText)){
-            errorMessage = "- Please select a file to upload!";
+        if (this.isOptional) {
+            return "";
+        } else {
+            String errorMessage = "";
+            if (selectFileLabel.getText().equals(defaultImagePathFieldText)) {
+                errorMessage = "- Please select a file to upload!";
+            }
+            return errorMessage;
         }
-        return errorMessage;
     }
 }

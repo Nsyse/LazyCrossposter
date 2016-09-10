@@ -20,6 +20,7 @@ public class SeleniumArtTestSuiteGenerator extends SeleniumTestSuiteGenerator {
     public SeleniumArtTestSuiteGenerator(ArtSubmissionFormModel form) {
         super();
         String submissionPath = form.getSubmissionPath();
+        String thumbnailPath = form.getThumbnailPath();
         String submissionTitle = form.getSubmissionTitle();
         this.submissionName = submissionTitle;
         String submissionDescription = form.getSubmissionDescription();
@@ -27,9 +28,9 @@ public class SeleniumArtTestSuiteGenerator extends SeleniumTestSuiteGenerator {
         ArrayList<String> websitesNames = form.getWebsitesNamesChosen();
         String contentRating = form.getContentRating();
         seleniumGenerators = new ArrayList<>();
-        seleniumGenerators.add(new DAArtGenerator(submissionPath, submissionTitle, submissionDescription, tagsList, contentRating));
-        seleniumGenerators.add(new FAArtGenerator(submissionPath, submissionTitle, submissionDescription, tagsList, contentRating));
-        seleniumGenerators.add(new WeasylArtGenerator(submissionPath, submissionTitle, submissionDescription, tagsList, contentRating));
+        seleniumGenerators.add(new DAArtGenerator(submissionPath, submissionTitle, submissionDescription, tagsList, contentRating, thumbnailPath));
+        seleniumGenerators.add(new FAArtGenerator(submissionPath, submissionTitle, submissionDescription, tagsList, contentRating, thumbnailPath));
+        seleniumGenerators.add(new WeasylArtGenerator(submissionPath, submissionTitle, submissionDescription, tagsList, contentRating, thumbnailPath));
         seleniumGenerators.add(new SFArtGenerator(submissionPath, submissionTitle, submissionDescription, tagsList, contentRating));
         seleniumGenerators.add(new FurifficArtGenerator(submissionPath, submissionTitle, submissionDescription, tagsList, contentRating));
         seleniumGenerators.add(new IBArtGenerator(submissionPath, submissionTitle, submissionDescription, tagsList, contentRating));
