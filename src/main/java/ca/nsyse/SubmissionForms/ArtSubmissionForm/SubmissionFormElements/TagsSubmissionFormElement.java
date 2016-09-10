@@ -46,11 +46,13 @@ public class TagsSubmissionFormElement extends SubmissionFormElement {
         if (! tagsField.getText().equals(defaultTagFieldText)) {
             ArrayList<String> tags = getAllTags();
             Set<String> tagsSet = new HashSet<String>(tags);
-            if (tags.size() <= 1) {
-                errorMessage = "- At least two tags are needed!";
+            if (tagsSet.size() <= 1) {
+                errorMessage = "- At least two different tags are needed!";
             }
             if (tagsSet.size() < tags.size()) {
-                errorMessage = "- Duplicate tags were found!";
+                //Pop a warning message saying duplicate tags were entered and will be ignored.
+                String duplicateTagsMsg = "Duplicate tags were found!\nOne of each unique tag will be kept.";
+                JOptionPane.showMessageDialog(null, duplicateTagsMsg, "FUCKK", JOptionPane.WARNING_MESSAGE);
             }
         }
         else{

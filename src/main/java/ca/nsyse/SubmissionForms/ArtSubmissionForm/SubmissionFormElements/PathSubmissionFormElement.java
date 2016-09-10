@@ -12,8 +12,8 @@ import java.awt.event.ActionListener;
  * Created by Nsyse on 2016-03-27.
  */
 public class PathSubmissionFormElement extends SubmissionFormElement {
-    private String defaultImagePathFieldText = "<- Select Image Patch";
-    private String defaultThumbnailPathFieldText = "<- Select Thumbnail Patch";
+    private String defaultImagePathFieldText = "<- Select Image Path";
+    private String defaultThumbnailPathFieldText = "<- Select Thumbnail Path";
     private JLabel selectFileLabel;
     private JButton selectFileButton;
 
