@@ -27,7 +27,7 @@ public class PathSubmissionFormElement extends SubmissionFormElement {
         return filePath;
     }
 
-    private String filePath;
+    private String filePath = "";
 
     public PathSubmissionFormElement(ArtFormFillerFrame listeningFrame, boolean isOptional, boolean isThumbnail) {
         super(listeningFrame);

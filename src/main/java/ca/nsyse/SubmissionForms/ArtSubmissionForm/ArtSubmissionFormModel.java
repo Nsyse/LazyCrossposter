@@ -20,7 +20,7 @@ public class ArtSubmissionFormModel {
         return thumbnailPath;
     }
 
-    private String thumbnailPath;
+    private String thumbnailPath = "";
 
     public ArrayList<String> getSubmissionTags() {
         return submissionTags;
