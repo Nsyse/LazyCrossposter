@@ -28,7 +28,6 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.openFileDialog1 = new System.Windows.Forms.OpenFileDialog();
             this.button1 = new System.Windows.Forms.Button();
             this.textBox1 = new System.Windows.Forms.TextBox();
             this.textBox2 = new System.Windows.Forms.TextBox();
@@ -52,11 +51,6 @@
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.SuspendLayout();
             // 
-            // openFileDialog1
-            // 
-            this.openFileDialog1.FileName = "openFileDialog1";
-            this.openFileDialog1.FileOk += new System.ComponentModel.CancelEventHandler(this.openFileDialog1_FileOk);
-            // 
             // button1
             // 
             this.button1.BackColor = System.Drawing.SystemColors.Info;
@@ -75,6 +69,7 @@
             this.textBox1.Name = "textBox1";
             this.textBox1.Size = new System.Drawing.Size(622, 20);
             this.textBox1.TabIndex = 7;
+            this.textBox1.TextChanged += new System.EventHandler(this.textBox1_LostFocus);
             // 
             // textBox2
             // 
@@ -84,6 +79,7 @@
             this.textBox2.Name = "textBox2";
             this.textBox2.Size = new System.Drawing.Size(621, 215);
             this.textBox2.TabIndex = 9;
+            this.textBox2.TextChanged += new System.EventHandler(this.textBox2_LostFocus);
             // 
             // label3
             // 
@@ -178,6 +174,7 @@
             this.textBox3.Name = "textBox3";
             this.textBox3.Size = new System.Drawing.Size(622, 20);
             this.textBox3.TabIndex = 12;
+            this.textBox3.LostFocus += new System.EventHandler(this.textBox3_LostFocus);
             // 
             // label1
             // 
@@ -199,6 +196,7 @@
             this.checkBox1.TabIndex = 14;
             this.checkBox1.Text = "DA";
             this.checkBox1.UseVisualStyleBackColor = false;
+            this.checkBox1.CheckedChanged += new System.EventHandler(this.checkBox1_CheckedChanged);
             // 
             // checkBox2
             // 
@@ -269,6 +267,7 @@
             this.button2.TabIndex = 20;
             this.button2.Text = "Create Selenium Tests!";
             this.button2.UseVisualStyleBackColor = false;
+            this.button2.Click += new System.EventHandler(this.button2_Click);
             // 
             // ArtUploaderForm
             // 
@@ -297,7 +296,6 @@
             this.Controls.Add(this.button1);
             this.Name = "ArtUploaderForm";
             this.Text = "ArtUploaderForm";
-            this.Load += new System.EventHandler(this.ArtUploaderForm_Load);
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
@@ -305,8 +303,6 @@
         }
 
         #endregion
-
-        private System.Windows.Forms.OpenFileDialog openFileDialog1;
         private System.Windows.Forms.Button button1;
         private System.Windows.Forms.TextBox textBox1;
         private System.Windows.Forms.TextBox textBox2;

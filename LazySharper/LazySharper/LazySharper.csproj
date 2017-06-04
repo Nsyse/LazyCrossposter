@@ -45,25 +45,26 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="ArtUploaderForm.cs">
+    <Compile Include="FormModel\ArtUploadModel.cs" />
+    <Compile Include="Forms\ArtUploaderForm.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="ArtUploaderForm.Designer.cs">
+    <Compile Include="Forms\ArtUploaderForm.Designer.cs">
       <DependentUpon>ArtUploaderForm.cs</DependentUpon>
     </Compile>
     <Compile Include="MessageDialogUtils.cs" />
-    <Compile Include="SpawnerForm.cs">
+    <Compile Include="Forms\SpawnerForm.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="SpawnerForm.Designer.cs">
+    <Compile Include="Forms\SpawnerForm.Designer.cs">
       <DependentUpon>SpawnerForm.cs</DependentUpon>
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <EmbeddedResource Include="ArtUploaderForm.resx">
+    <EmbeddedResource Include="Forms\ArtUploaderForm.resx">
       <DependentUpon>ArtUploaderForm.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="SpawnerForm.resx">
+    <EmbeddedResource Include="Forms\SpawnerForm.resx">
       <DependentUpon>SpawnerForm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
