@@ -1,6 +1,8 @@
 *.idea
 *.iml
 */out
+*/Output
+*/Selenium upload script
 */target
 # User-specific files
 *.suo

@@ -61,6 +61,7 @@
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="SuiteGenerator.cs" />
     <EmbeddedResource Include="Forms\ArtUploaderForm.resx">
       <DependentUpon>ArtUploaderForm.cs</DependentUpon>
     </EmbeddedResource>

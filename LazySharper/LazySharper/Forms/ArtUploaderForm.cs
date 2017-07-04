@@ -130,6 +130,10 @@ namespace LazySharper
         // Submit Button click
         private void button2_Click(object sender, EventArgs e)
         {
+            generateGenerator();
+
+            SuiteGenerator generator = new SuiteGenerator();
+
             Console.WriteLine(m_ArtUploadModel);
             bool genDA = checkBox1.Checked;
             bool genFA = checkBox2.Checked;
@@ -138,9 +142,27 @@ namespace LazySharper
             bool genTB = checkBox5.Checked;
             bool genWS = checkBox6.Checked;
 
-            //Gen suite
+            //Gen suite and tests
+            //TODO : add a list of active sites in the model.
+            generator.GenerateSuite(m_ArtUploadModel);
+        }
 
-            //Gen tests
+        private void generateGenerator()
+        {
+            //Read all text line in a given file.
+            string[] readLines = File.ReadAllLines(@"Input\test.txt");
+
+            using (System.IO.StreamWriter file = new System.IO.StreamWriter(@"Input\genned.txt"))
+            {
+                file.WriteLine("using (System.IO.StreamWriter file = new System.IO.StreamWriter(@\"Input\\genned.txt\"))");
+                file.WriteLine("{");
+                //For each line of text, write in another file the same line with a given prefix and suffix to make a hardcoded generator.
+                foreach (string s in readLines)
+                {
+                    file.WriteLine("file.WriteLine(\"" + s + "\");");
+                }
+                file.WriteLine("}");
+            }
         }
 
     }
