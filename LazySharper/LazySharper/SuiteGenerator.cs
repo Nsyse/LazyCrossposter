@@ -1,4 +1,5 @@
-﻿using System;
+﻿using LazySharper.FormModel;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -8,18 +9,18 @@ namespace LazySharper
 {
     class SuiteGenerator
     {
-        public List<string> ActiveSites { get; private set; }
+        public ArtUploadModel Model { get; private set; }
 
-        public void GenerateSuite(List<string> activeSites)
+        public void GenerateSuite(ArtUploadModel model)
         {
-            ActiveSites = activeSites;
+            Model = model;
             generateSuiteDoc();
             generateTestsDocs();
         }
 
         private void generateTestsDocs()
         {
-            if (ActiveSites.Contains("DA"))
+            if (Model.ActiveSites.Contains("DA"))
             {
 
             }
@@ -40,11 +41,22 @@ namespace LazySharper
                 file.WriteLine("<table id=\"suiteTable\" cellpadding=\"1\" cellspacing=\"1\" border=\"1\" class=\"selenium\"><tbody>");
                 file.WriteLine("<tr><td><b>Test Suite</b></td></tr>");
 
-                if (ActiveSites.Contains("DA"))
+                if (Model.ActiveSites.Contains(Sites.DA))
                 {
-                    file.WriteLine("<tr><td><a href=\"DA.html\">TestSuite_DA</a></td></tr>");
+                    file.WriteLine(@"<tr><td><a href=""DA upload_ready_test.html"">Deviantart</a></td></tr>");
                 }
-
+                if (Model.ActiveSites.Contains(Sites.FA))
+                {
+                    file.WriteLine(@"<tr><td><a href=""FA upload_ready_test.html"">Furaffinity upload TITLE_TEXT ready test</a></td></tr>");
+                }
+                if (Model.ActiveSites.Contains(Sites.SF))
+                {
+                    file.WriteLine(@"<tr><td><a href=""SoFurry upload_ready_test.html"">SoFurry upload TITLE_TEXT ready test</a></td></tr>");
+                }
+                if (Model.ActiveSites.Contains(Sites.WS))
+                {
+                    file.WriteLine(@"<tr><td><a href=""Weasyl upload_ready_test.html"">Weasyl upload TITLE_TEXT ready test</a></td></tr>");
+                }
                 file.WriteLine("</tbody></table>");
                 file.WriteLine("</body>");
                 file.WriteLine("</html>");

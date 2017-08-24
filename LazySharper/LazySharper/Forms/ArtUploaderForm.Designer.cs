@@ -43,11 +43,9 @@
             this.label1 = new System.Windows.Forms.Label();
             this.checkBox1 = new System.Windows.Forms.CheckBox();
             this.checkBox2 = new System.Windows.Forms.CheckBox();
-            this.checkBox3 = new System.Windows.Forms.CheckBox();
-            this.checkBox4 = new System.Windows.Forms.CheckBox();
-            this.checkBox5 = new System.Windows.Forms.CheckBox();
             this.checkBox6 = new System.Windows.Forms.CheckBox();
             this.button2 = new System.Windows.Forms.Button();
+            this.checkBox4 = new System.Windows.Forms.CheckBox();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.SuspendLayout();
             // 
@@ -209,48 +207,12 @@
             this.checkBox2.Text = "Furaffinity";
             this.checkBox2.UseVisualStyleBackColor = false;
             // 
-            // checkBox3
-            // 
-            this.checkBox3.AutoSize = true;
-            this.checkBox3.BackColor = System.Drawing.SystemColors.Info;
-            this.checkBox3.CheckAlign = System.Drawing.ContentAlignment.BottomCenter;
-            this.checkBox3.Location = new System.Drawing.Point(110, 485);
-            this.checkBox3.Name = "checkBox3";
-            this.checkBox3.Size = new System.Drawing.Size(42, 31);
-            this.checkBox3.TabIndex = 16;
-            this.checkBox3.Text = "Furiffic";
-            this.checkBox3.UseVisualStyleBackColor = false;
-            // 
-            // checkBox4
-            // 
-            this.checkBox4.AutoSize = true;
-            this.checkBox4.BackColor = System.Drawing.SystemColors.Info;
-            this.checkBox4.CheckAlign = System.Drawing.ContentAlignment.BottomCenter;
-            this.checkBox4.Location = new System.Drawing.Point(158, 485);
-            this.checkBox4.Name = "checkBox4";
-            this.checkBox4.Size = new System.Drawing.Size(47, 31);
-            this.checkBox4.TabIndex = 17;
-            this.checkBox4.Text = "SoFurry";
-            this.checkBox4.UseVisualStyleBackColor = false;
-            // 
-            // checkBox5
-            // 
-            this.checkBox5.AutoSize = true;
-            this.checkBox5.BackColor = System.Drawing.SystemColors.Info;
-            this.checkBox5.CheckAlign = System.Drawing.ContentAlignment.BottomCenter;
-            this.checkBox5.Location = new System.Drawing.Point(211, 485);
-            this.checkBox5.Name = "checkBox5";
-            this.checkBox5.Size = new System.Drawing.Size(43, 31);
-            this.checkBox5.TabIndex = 18;
-            this.checkBox5.Text = "Tumblr";
-            this.checkBox5.UseVisualStyleBackColor = false;
-            // 
             // checkBox6
             // 
             this.checkBox6.AutoSize = true;
             this.checkBox6.BackColor = System.Drawing.SystemColors.Info;
             this.checkBox6.CheckAlign = System.Drawing.ContentAlignment.BottomCenter;
-            this.checkBox6.Location = new System.Drawing.Point(260, 485);
+            this.checkBox6.Location = new System.Drawing.Point(163, 485);
             this.checkBox6.Name = "checkBox6";
             this.checkBox6.Size = new System.Drawing.Size(46, 31);
             this.checkBox6.TabIndex = 19;
@@ -268,6 +230,18 @@
             this.button2.UseVisualStyleBackColor = false;
             this.button2.Click += new System.EventHandler(this.button2_Click);
             // 
+            // checkBox4
+            // 
+            this.checkBox4.AutoSize = true;
+            this.checkBox4.BackColor = System.Drawing.SystemColors.Info;
+            this.checkBox4.CheckAlign = System.Drawing.ContentAlignment.BottomCenter;
+            this.checkBox4.Location = new System.Drawing.Point(110, 485);
+            this.checkBox4.Name = "checkBox4";
+            this.checkBox4.Size = new System.Drawing.Size(47, 31);
+            this.checkBox4.TabIndex = 17;
+            this.checkBox4.Text = "SoFurry";
+            this.checkBox4.UseVisualStyleBackColor = false;
+            // 
             // ArtUploaderForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -275,9 +249,7 @@
             this.ClientSize = new System.Drawing.Size(647, 604);
             this.Controls.Add(this.button2);
             this.Controls.Add(this.checkBox6);
-            this.Controls.Add(this.checkBox5);
             this.Controls.Add(this.checkBox4);
-            this.Controls.Add(this.checkBox3);
             this.Controls.Add(this.checkBox2);
             this.Controls.Add(this.checkBox1);
             this.Controls.Add(this.textBox3);
@@ -317,10 +289,8 @@
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.CheckBox checkBox1;
         private System.Windows.Forms.CheckBox checkBox2;
-        private System.Windows.Forms.CheckBox checkBox3;
-        private System.Windows.Forms.CheckBox checkBox4;
-        private System.Windows.Forms.CheckBox checkBox5;
         private System.Windows.Forms.CheckBox checkBox6;
         private System.Windows.Forms.Button button2;
+        private System.Windows.Forms.CheckBox checkBox4;
     }
 }

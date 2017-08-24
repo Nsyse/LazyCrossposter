@@ -20,9 +20,24 @@ namespace LazySharper
 
         private ArtUploadModel m_ArtUploadModel = new ArtUploadModel();
 
+        private Dictionary<CheckBox, ArtUploadTestGenerator> SiteMap = new Dictionary<CheckBox, ArtUploadTestGenerator>();
+
         public ArtUploaderForm()
         {
             InitializeComponent();
+            CreateCheckBoxMap();
+        }
+
+        private void CreateCheckBoxMap()
+        {
+            SiteMap[checkBox1] = new DAArtGenerator();
+            SiteMap[checkBox2] = new FuraffinityArtGenerator();
+            SiteMap[checkBox4] = new SoFurryArtGenerator();
+            SiteMap[checkBox6] = new WeasylArtGenerator();
+            //bool genFU = checkBox3.Checked;
+            //bool genTB = checkBox5.Checked;
+            //bool genWS = checkBox6.Checked;
+
         }
 
         private void button1_Click(object sender, EventArgs e)
@@ -130,17 +145,26 @@ namespace LazySharper
         // Submit Button click
         private void button2_Click(object sender, EventArgs e)
         {
-            generateGenerator();
+            //generateGenerator();
 
             SuiteGenerator generator = new SuiteGenerator();
 
             Console.WriteLine(m_ArtUploadModel);
-            bool genDA = checkBox1.Checked;
-            bool genFA = checkBox2.Checked;
-            bool genFU = checkBox3.Checked;
-            bool genSF = checkBox4.Checked;
-            bool genTB = checkBox5.Checked;
-            bool genWS = checkBox6.Checked;
+            foreach (var control in this.Controls)
+            {
+                if (control is CheckBox)
+                {
+                    CheckBox checkbox = (CheckBox)control;
+                    if (((CheckBox)control).Checked)
+                    {
+                        if (SiteMap.ContainsKey(checkbox))
+                        {
+                            SiteMap[checkbox].GenerateSeleniumTest(m_ArtUploadModel);
+                            m_ArtUploadModel.ActiveSites.Add(checkbox.Text);
+                        }
+                    }
+                }
+            }
 
             //Gen suite and tests
             //TODO : add a list of active sites in the model.
@@ -159,7 +183,8 @@ namespace LazySharper
                 //For each line of text, write in another file the same line with a given prefix and suffix to make a hardcoded generator.
                 foreach (string s in readLines)
                 {
-                    file.WriteLine("file.WriteLine(\"" + s + "\");");
+                    String escapedQuotes = s.Replace("\"", "\"\"");
+                    file.WriteLine("file.WriteLine(@\"" + escapedQuotes + "\");");
                 }
                 file.WriteLine("}");
             }

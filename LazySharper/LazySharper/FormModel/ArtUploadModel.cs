@@ -8,7 +8,7 @@ using System.Threading.Tasks;
 
 namespace LazySharper.FormModel
 {
-    class ArtUploadModel
+    public class ArtUploadModel : TestGeneratorModel
     {
         public enum ContentRating
         {
@@ -27,6 +27,15 @@ namespace LazySharper.FormModel
             set { m_AgeRating = value; }
         }
 
+        public List<String> ActiveSites {
+            get { if (m_ActiveSites == null)
+                {
+                    m_ActiveSites = new List<string>();
+                }
+                return m_ActiveSites;
+            }
+            set { m_ActiveSites = value; } }
+        private List<String> m_ActiveSites = new List<string>();
         public ArtUploadModel()
         {
             this.Tags = new List<string>();

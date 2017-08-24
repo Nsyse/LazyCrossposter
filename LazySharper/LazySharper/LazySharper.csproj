@@ -46,12 +46,18 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="FormModel\ArtUploadModel.cs" />
+    <Compile Include="FormModel\TestGeneratorModel.cs" />
     <Compile Include="Forms\ArtUploaderForm.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="Forms\ArtUploaderForm.Designer.cs">
       <DependentUpon>ArtUploaderForm.cs</DependentUpon>
     </Compile>
+    <Compile Include="ArtGens\DAArtGenerator.cs" />
+    <Compile Include="ArtGens\FuraffinityArtGenerator.cs" />
+    <Compile Include="ArtGens\SeleniumTestGenerator.cs" />
+    <Compile Include="ArtGens\SoFurryArtGenerator.cs" />
+    <Compile Include="Forms\WeasylArtGenerator.cs" />
     <Compile Include="MessageDialogUtils.cs" />
     <Compile Include="Forms\SpawnerForm.cs">
       <SubType>Form</SubType>
@@ -61,6 +67,7 @@
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Sites.cs" />
     <Compile Include="SuiteGenerator.cs" />
     <EmbeddedResource Include="Forms\ArtUploaderForm.resx">
       <DependentUpon>ArtUploaderForm.cs</DependentUpon>
