@@ -1,14 +1,15 @@
 ﻿using System;
+using System.IO;
+using LazySharper.ArtGens;
 using LazySharper.FormModel;
-using static LazySharper.FormModel.ArtUploadModel;
 
-namespace LazySharper
+namespace LazySharper.Forms
 {
-    internal class WeasylArtGenerator : ArtUploadTestGenerator
+    public class WeasylArtGenerator : ArtUploadTestGenerator
     {
         public override void GenerateSeleniumTest(ArtUploadModel model)
         {
-            using (System.IO.StreamWriter file = new System.IO.StreamWriter(@"Output\Weasyl upload_ready_test.html"))
+            using (StreamWriter file = new StreamWriter(@"Output\Weasyl upload_ready_test.html"))
             {
                 file.WriteLine(@"<?xml version=""1.0"" encoding=""UTF-8""?>");
                 file.WriteLine(@"<!DOCTYPE html PUBLIC ""-//W3C//DTD XHTML 1.0 Strict//EN"" ""http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"">");
@@ -81,8 +82,8 @@ namespace LazySharper
                 file.WriteLine(@"<tr>");
                 file.WriteLine(@"	<td>type</td>");
                 file.WriteLine(@"	<td>//form[@id='submit-form']/div[4]/ul/li/input</td>");
-                String concatenatedString = "";
-                foreach (String tag in model.Tags)
+                string concatenatedString = "";
+                foreach (string tag in model.Tags)
                 {
                     concatenatedString += tag.Replace(" ", "_") + " ";
                 }
@@ -91,19 +92,19 @@ namespace LazySharper
                 file.WriteLine(@"<tr>");
                 file.WriteLine(@"	<td>select</td>");
                 file.WriteLine(@"	<td>id=submissionrating</td>");
-                if (model.AgeRating == ContentRating.General)
+                if (model.AgeRating == ArtUploadModel.ContentRating.General)
                 {
                     file.WriteLine(@"	<td>label=General</td>");
                 }
-                else if (model.AgeRating == ContentRating.Teen)
+                else if (model.AgeRating == ArtUploadModel.ContentRating.Teen)
                 {
                     file.WriteLine(@"	<td>label=Moderate (13+)</td>");
                 }
-                else if (model.AgeRating == ContentRating.Mature)
+                else if (model.AgeRating == ArtUploadModel.ContentRating.Mature)
                 {
                     file.WriteLine(@"	<td>label=Mature (18+ non-sexual)</td>");
                 }
-                else if (model.AgeRating == ContentRating.Adult)
+                else if (model.AgeRating == ArtUploadModel.ContentRating.Adult)
                 {
                     file.WriteLine(@"	<td>label=Explicit (18+ sexual)</td>");
                 }

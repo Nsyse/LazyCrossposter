@@ -1,6 +1,6 @@
 ﻿using LazySharper.FormModel;
 
-namespace LazySharper
+namespace LazySharper.ArtGens
 {
     public abstract class ArtUploadTestGenerator
     {

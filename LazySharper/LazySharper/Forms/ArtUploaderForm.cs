@@ -1,85 +1,74 @@
-﻿using LazySharper.FormModel;
-using System;
+﻿using System;
 using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
 using System.Drawing;
 using System.IO;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
+using LazySharper.ArtGens;
+using LazySharper.FormModel;
 
-namespace LazySharper
+namespace LazySharper.Forms
 {
     public partial class ArtUploaderForm : Form
     {
-        private static readonly List<string> ImageExtensions = new List<string> { ".JPG", ".JPE", ".BMP", ".GIF", ".PNG" };
+        private static readonly List<string> ImageExtensions = new List<string> { "*.jpg", "*.jpe", "*.jpeg", "*.bpm", "*.gif", "*.png" };
 
-        private Color ReminderDoneColor = System.Drawing.SystemColors.Control;
+        private Color m_ReminderDoneColor = SystemColors.Control;
 
         private ArtUploadModel m_ArtUploadModel = new ArtUploadModel();
 
-        private Dictionary<CheckBox, ArtUploadTestGenerator> SiteMap = new Dictionary<CheckBox, ArtUploadTestGenerator>();
+        private Dictionary<CheckBox, ArtUploadTestGenerator> m_SiteMap = new Dictionary<CheckBox, ArtUploadTestGenerator>();
 
         public ArtUploaderForm()
         {
             InitializeComponent();
             CreateCheckBoxMap();
+
+
+            // Create output folder for selenium tests
+            if (!Directory.Exists("Output"))
+                Directory.CreateDirectory("Output");
         }
 
         private void CreateCheckBoxMap()
         {
-            SiteMap[checkBox1] = new DAArtGenerator();
-            SiteMap[checkBox2] = new FuraffinityArtGenerator();
-            SiteMap[checkBox4] = new SoFurryArtGenerator();
-            SiteMap[checkBox6] = new WeasylArtGenerator();
+            m_SiteMap[m_ArtPageDA] = new DAArtGenerator();
+            m_SiteMap[m_ArtPageFA] = new FuraffinityArtGenerator();
+            m_SiteMap[m_ArtPageSO] = new SoFurryArtGenerator();
+            m_SiteMap[m_ArtPageWeasyl] = new WeasylArtGenerator();
             //bool genFU = checkBox3.Checked;
             //bool genTB = checkBox5.Checked;
             //bool genWS = checkBox6.Checked;
 
         }
 
-        private void button1_Click(object sender, EventArgs e)
+        private void OpenFileSelector_Click(object sender, EventArgs e)
         {
             OpenFileDialog file = new OpenFileDialog();
+            file.Filter = "Image Files" + "|" + string.Join(";", ImageExtensions);
             if (file.ShowDialog() == DialogResult.OK)
             {
                 m_ArtUploadModel.FilePath = file.FileName;
-                if (ImageExtensions.Contains(Path.GetExtension(m_ArtUploadModel.FilePath).ToUpperInvariant()))
-                {
-                    button1.Text = m_ArtUploadModel.FilePath;
-                    pictureBox1.Image = Image.FromFile(m_ArtUploadModel.FilePath).GetThumbnailImage(153, 153, () => false, IntPtr.Zero);
-                    button1.BackColor = ReminderDoneColor;
-
-                }
-                else
-                {
-                    MessageDialogUtils.ShowErrorMessageDialog("Invalid file selected!", "Only files with the given extensions are supported : " +
-                        "\n- .bmp, " +
-                        "\n- .gif, " +
-                        "\n- .jpe, " +
-                        "\n- .jpg, " +
-                        "\n- .png");
-                }
+                m_OpenFileSelector.Text = m_ArtUploadModel.FilePath;
+                m_ImagePreview.Image = Image.FromFile(m_ArtUploadModel.FilePath).GetThumbnailImage(153, 153, () => false, IntPtr.Zero);
+                m_OpenFileSelector.BackColor = m_ReminderDoneColor;
             }
         }
 
-        private void pictureBox1_Click(object sender, EventArgs e)
+        private void ImagePreview_Click(object sender, EventArgs e)
         {
-            if (button1.Text != "Select file to crosspost")
+            if (m_OpenFileSelector.Text != "Select file to crosspost")
             {
                 System.Diagnostics.Process.Start(m_ArtUploadModel.FilePath);
             }
         }
 
         //Title box
-        private void textBox1_LostFocus(object sender, EventArgs e)
+        private void TitleField_LostFocus(object sender, EventArgs e)
         {
-            if (textBox1.Text != String.Empty)
+            if (!string.IsNullOrEmpty(m_TitleField.Text))
             {
-                textBox1.BackColor = ReminderDoneColor;
-                m_ArtUploadModel.Title = textBox1.Text;
+                m_TitleField.BackColor = m_ReminderDoneColor;
+                m_ArtUploadModel.Title = m_TitleField.Text;
             }
             else
             {
@@ -88,12 +77,12 @@ namespace LazySharper
         }
 
         //Description box
-        private void textBox2_LostFocus(object sender, EventArgs e)
+        private void DescriptionField_LostFocus(object sender, EventArgs e)
         {
-            if (textBox2.Text != String.Empty)
+            if (!string.IsNullOrEmpty(m_DescriptionField.Text))
             {
-                textBox2.BackColor = ReminderDoneColor;
-                m_ArtUploadModel.Description = textBox2.Text;
+                m_DescriptionField.BackColor = m_ReminderDoneColor;
+                m_ArtUploadModel.Description = m_DescriptionField.Text;
             }
             else
             {
@@ -102,40 +91,40 @@ namespace LazySharper
         }
 
         //Tags box
-        private void textBox3_LostFocus(object sender, EventArgs e)
+        private void TagsField_LostFocus(object sender, EventArgs e)
         {
-            if (textBox3.Text != String.Empty)
+            if (!string.IsNullOrEmpty(m_TagsField.Text))
             {
-                textBox3.BackColor = ReminderDoneColor;
-                m_ArtUploadModel.GenerateTags(textBox3.Text);
+                m_TagsField.BackColor = m_ReminderDoneColor;
+                m_ArtUploadModel.GenerateTags(m_TagsField.Text);
             }
         }
 
         #region Content Rating Radio buttons
         private void SetContentRatingSelected()
         {
-            label2.BackColor = ReminderDoneColor;
+            label2.BackColor = m_ReminderDoneColor;
         }
 
-        private void radioButton5_CheckedChanged(object sender, EventArgs e)
+        private void ContentRating_CheckedChanged(object sender, EventArgs e)
         {
             SetContentRatingSelected();
             m_ArtUploadModel.AgeRating = ArtUploadModel.ContentRating.General;
         }
 
-        private void radioButton6_CheckedChanged(object sender, EventArgs e)
+        private void ContentRatingT_CheckedChanged(object sender, EventArgs e)
         {
             SetContentRatingSelected();
             m_ArtUploadModel.AgeRating = ArtUploadModel.ContentRating.Teen;
         }
 
-        private void radioButton7_CheckedChanged(object sender, EventArgs e)
+        private void ContentRatingM_CheckedChanged(object sender, EventArgs e)
         {
             SetContentRatingSelected();
             m_ArtUploadModel.AgeRating = ArtUploadModel.ContentRating.Mature;
         }
 
-        private void radioButton8_CheckedChanged(object sender, EventArgs e)
+        private void ContentRatingA_CheckedChanged(object sender, EventArgs e)
         {
             SetContentRatingSelected();
             m_ArtUploadModel.AgeRating = ArtUploadModel.ContentRating.Adult;
@@ -143,23 +132,23 @@ namespace LazySharper
         #endregion
 
         // Submit Button click
-        private void button2_Click(object sender, EventArgs e)
+        private void GenerateTests_Click(object sender, EventArgs e)
         {
             //generateGenerator();
 
             SuiteGenerator generator = new SuiteGenerator();
 
             Console.WriteLine(m_ArtUploadModel);
-            foreach (var control in this.Controls)
+            foreach (var control in m_ArtSitesFlowPanel.Controls)
             {
-                if (control is CheckBox)
+                CheckBox checkbox = control as CheckBox;
+                if (checkbox != null)
                 {
-                    CheckBox checkbox = (CheckBox)control;
-                    if (((CheckBox)control).Checked)
+                    if (checkbox.Checked)
                     {
-                        if (SiteMap.ContainsKey(checkbox))
+                        if (m_SiteMap.ContainsKey(checkbox))
                         {
-                            SiteMap[checkbox].GenerateSeleniumTest(m_ArtUploadModel);
+                            m_SiteMap[checkbox].GenerateSeleniumTest(m_ArtUploadModel);
                             m_ArtUploadModel.ActiveSites.Add(checkbox.Text);
                         }
                     }
@@ -171,7 +160,7 @@ namespace LazySharper
             generator.GenerateSuite(m_ArtUploadModel);
         }
 
-        private void generateGenerator()
+        private void GenerateGenerator()
         {
             //Read all text line in a given file.
             string[] readLines = File.ReadAllLines(@"Input\test.txt");
@@ -183,12 +172,11 @@ namespace LazySharper
                 //For each line of text, write in another file the same line with a given prefix and suffix to make a hardcoded generator.
                 foreach (string s in readLines)
                 {
-                    String escapedQuotes = s.Replace("\"", "\"\"");
+                    string escapedQuotes = s.Replace("\"", "\"\"");
                     file.WriteLine("file.WriteLine(@\"" + escapedQuotes + "\");");
                 }
                 file.WriteLine("}");
             }
         }
-
     }
 }

@@ -1,4 +1,4 @@
-﻿namespace LazySharper
+﻿namespace LazySharper.Forms
 {
     partial class SpawnerForm
     {
@@ -28,61 +28,60 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.button1 = new System.Windows.Forms.Button();
-            this.button2 = new System.Windows.Forms.Button();
-            this.button3 = new System.Windows.Forms.Button();
+            this.uploadContent = new System.Windows.Forms.Button();
+            this.complain = new System.Windows.Forms.Button();
+            this.contact = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
-            // button1
+            // uploadContent
             // 
-            this.button1.Location = new System.Drawing.Point(12, 12);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(260, 36);
-            this.button1.TabIndex = 0;
-            this.button1.Text = "Upload content";
-            this.button1.UseVisualStyleBackColor = true;
-            this.button1.Click += new System.EventHandler(this.button1_Click);
+            this.uploadContent.Location = new System.Drawing.Point(12, 12);
+            this.uploadContent.Name = "uploadContent";
+            this.uploadContent.Size = new System.Drawing.Size(260, 36);
+            this.uploadContent.TabIndex = 0;
+            this.uploadContent.Text = "Upload content";
+            this.uploadContent.UseVisualStyleBackColor = true;
+            this.uploadContent.Click += new System.EventHandler(this.UploadContent_Click);
             // 
-            // button2
+            // complain
             // 
-            this.button2.Location = new System.Drawing.Point(12, 54);
-            this.button2.Name = "button2";
-            this.button2.Size = new System.Drawing.Size(260, 36);
-            this.button2.TabIndex = 1;
-            this.button2.Text = "Complain about your life";
-            this.button2.UseVisualStyleBackColor = true;
-            this.button2.Click += new System.EventHandler(this.button2_Click);
+            this.complain.Location = new System.Drawing.Point(12, 54);
+            this.complain.Name = "complain";
+            this.complain.Size = new System.Drawing.Size(260, 36);
+            this.complain.TabIndex = 1;
+            this.complain.Text = "Complain about your life";
+            this.complain.UseVisualStyleBackColor = true;
+            this.complain.Click += new System.EventHandler(this.Complain_Click);
             // 
-            // button3
+            // contact
             // 
-            this.button3.Location = new System.Drawing.Point(12, 96);
-            this.button3.Name = "button3";
-            this.button3.Size = new System.Drawing.Size(260, 36);
-            this.button3.TabIndex = 2;
-            this.button3.Text = "Contact the fucker who made this";
-            this.button3.UseVisualStyleBackColor = true;
-            this.button3.Click += new System.EventHandler(this.button3_Click);
+            this.contact.Location = new System.Drawing.Point(12, 96);
+            this.contact.Name = "contact";
+            this.contact.Size = new System.Drawing.Size(260, 36);
+            this.contact.TabIndex = 2;
+            this.contact.Text = "Contact the fucker who made this";
+            this.contact.UseVisualStyleBackColor = true;
+            this.contact.Click += new System.EventHandler(this.Contact_Click);
             // 
             // SpawnerForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(284, 261);
-            this.Controls.Add(this.button3);
-            this.Controls.Add(this.button2);
-            this.Controls.Add(this.button1);
+            this.Controls.Add(this.contact);
+            this.Controls.Add(this.complain);
+            this.Controls.Add(this.uploadContent);
             this.Name = "SpawnerForm";
             this.Text = "Nsyse Lazy Artist Helper";
-            this.Load += new System.EventHandler(this.Form1_Load);
             this.ResumeLayout(false);
 
         }
 
         #endregion
 
-        private System.Windows.Forms.Button button1;
-        private System.Windows.Forms.Button button2;
-        private System.Windows.Forms.Button button3;
+        private System.Windows.Forms.Button uploadContent;
+        private System.Windows.Forms.Button complain;
+        private System.Windows.Forms.Button contact;
     }
 }
 

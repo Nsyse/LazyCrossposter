@@ -1,10 +1,7 @@
 ﻿using System;
-using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
-using System.Text;
 using System.Text.RegularExpressions;
-using System.Threading.Tasks;
 
 namespace LazySharper.FormModel
 {
@@ -21,45 +18,35 @@ namespace LazySharper.FormModel
         public List<string> Tags { get; set; }
 
 
-        private ContentRating m_AgeRating = ContentRating.Unset;
-        public ContentRating AgeRating {
-            get { return m_AgeRating; }
-            set { m_AgeRating = value; }
+        private static Regex m_stringIsNumericRegex = new Regex("^[a-zA-Z0-9, ]*$");
+
+        public ContentRating AgeRating { get; set; } = ContentRating.Unset;
+
+        private List<string> m_ActiveSites = new List<string>();
+        public List<string> ActiveSites {
+            get => m_ActiveSites ?? (m_ActiveSites = new List<string>());
+            set => m_ActiveSites = value;
         }
 
-        public List<String> ActiveSites {
-            get { if (m_ActiveSites == null)
-                {
-                    m_ActiveSites = new List<string>();
-                }
-                return m_ActiveSites;
-            }
-            set { m_ActiveSites = value; } }
-        private List<String> m_ActiveSites = new List<string>();
         public ArtUploadModel()
         {
-            this.Tags = new List<string>();
+            Tags = new List<string>();
         }
 
         public override string ToString()
         {
-            string toStringValue = "FilePath : " + FilePath + "\n" +
+            return "FilePath : " + FilePath + "\n" +
                 "Title : " + Title + "\n" +
                 "Description : " + Description + "\n" +
-                "Tags : ";
-            for (int i = 0; i < Tags.Count; i++)
-            {
-                toStringValue += Tags[i]+", ";
-            }
-            toStringValue += "\nAgeRating : " + AgeRating + "\n";
-            return toStringValue;
+                "Tags : " + string.Join(", ", Tags) + "\n" +
+                "AgeRating : " + AgeRating + "\n";
         }
 
         public bool GenerateTags(string text)
         {
             if (StringIsAlphanumeric(text))
             {
-                text.Replace(' ', '_');
+                text.Replace(' ', '_'); // TODO @Nsyse ?
                 Tags = text.Split(',').ToList();
             }
             else
@@ -71,18 +58,14 @@ namespace LazySharper.FormModel
             {
                 return true;
             }
-            else
-            {
-                MessageDialogUtils.ShowErrorMessageDialog("Tag Field Error", "Require at least 2 tags.\n" +
-                    "Please separate tags by commas.");
-            }
+            MessageDialogUtils.ShowErrorMessageDialog("Tag Field Error", "Require at least 2 tags.\n" + 
+                                                                         "Please separate tags by commas.");
             return false;
         }
 
         private bool StringIsAlphanumeric(string text)
         {
-            Regex r = new Regex("^[a-zA-Z0-9, ]*$");
-            return r.IsMatch(text);
+            return m_stringIsNumericRegex.IsMatch(text);
         }
     }
 }

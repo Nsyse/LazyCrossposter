@@ -1,17 +1,17 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using System.Windows.Forms;
+﻿using System.Windows.Forms;
 
 namespace LazySharper
 {
-    class MessageDialogUtils
+    public class MessageDialogUtils
     {
         public static void ShowErrorMessageDialog(string errorTitle, string errorMessage)
         {
             MessageBox.Show(errorMessage, errorTitle, MessageBoxButtons.OK, MessageBoxIcon.Error);
+        }
+
+        public static void ShowInfoMessageDialog(string infoTitle, string infoMessage)
+        {
+            MessageBox.Show(infoMessage, infoTitle, MessageBoxButtons.OK, MessageBoxIcon.Information);
         }
     }
 }

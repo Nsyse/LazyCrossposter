@@ -1,4 +1,4 @@
-﻿namespace LazySharper
+﻿namespace LazySharper.Forms
 {
     partial class ArtUploaderForm
     {
@@ -28,56 +28,58 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.button1 = new System.Windows.Forms.Button();
-            this.textBox1 = new System.Windows.Forms.TextBox();
-            this.textBox2 = new System.Windows.Forms.TextBox();
+            this.m_OpenFileSelector = new System.Windows.Forms.Button();
+            this.m_TitleField = new System.Windows.Forms.TextBox();
+            this.m_DescriptionField = new System.Windows.Forms.TextBox();
             this.label3 = new System.Windows.Forms.Label();
             this.label4 = new System.Windows.Forms.Label();
-            this.radioButton5 = new System.Windows.Forms.RadioButton();
-            this.radioButton6 = new System.Windows.Forms.RadioButton();
-            this.radioButton7 = new System.Windows.Forms.RadioButton();
-            this.radioButton8 = new System.Windows.Forms.RadioButton();
+            this.m_ContentRatingG = new System.Windows.Forms.RadioButton();
+            this.m_ContentRatingT = new System.Windows.Forms.RadioButton();
+            this.m_ContentRatingM = new System.Windows.Forms.RadioButton();
+            this.m_ContentRatingA = new System.Windows.Forms.RadioButton();
             this.label2 = new System.Windows.Forms.Label();
-            this.pictureBox1 = new System.Windows.Forms.PictureBox();
-            this.textBox3 = new System.Windows.Forms.TextBox();
+            this.m_ImagePreview = new System.Windows.Forms.PictureBox();
+            this.m_TagsField = new System.Windows.Forms.TextBox();
             this.label1 = new System.Windows.Forms.Label();
-            this.checkBox1 = new System.Windows.Forms.CheckBox();
-            this.checkBox2 = new System.Windows.Forms.CheckBox();
-            this.checkBox6 = new System.Windows.Forms.CheckBox();
-            this.button2 = new System.Windows.Forms.Button();
-            this.checkBox4 = new System.Windows.Forms.CheckBox();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
+            this.m_ArtPageDA = new System.Windows.Forms.CheckBox();
+            this.m_ArtPageFA = new System.Windows.Forms.CheckBox();
+            this.m_ArtPageWeasyl = new System.Windows.Forms.CheckBox();
+            this.m_GenerateTests = new System.Windows.Forms.Button();
+            this.m_ArtPageSO = new System.Windows.Forms.CheckBox();
+            this.m_ArtSitesFlowPanel = new System.Windows.Forms.FlowLayoutPanel();
+            ((System.ComponentModel.ISupportInitialize)(this.m_ImagePreview)).BeginInit();
+            this.m_ArtSitesFlowPanel.SuspendLayout();
             this.SuspendLayout();
             // 
-            // button1
+            // m_OpenFileSelector
             // 
-            this.button1.BackColor = System.Drawing.SystemColors.Info;
-            this.button1.Location = new System.Drawing.Point(12, 12);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(467, 131);
-            this.button1.TabIndex = 0;
-            this.button1.Text = "Select file to crosspost";
-            this.button1.UseVisualStyleBackColor = false;
-            this.button1.Click += new System.EventHandler(this.button1_Click);
+            this.m_OpenFileSelector.BackColor = System.Drawing.SystemColors.Info;
+            this.m_OpenFileSelector.Location = new System.Drawing.Point(12, 12);
+            this.m_OpenFileSelector.Name = "m_OpenFileSelector";
+            this.m_OpenFileSelector.Size = new System.Drawing.Size(467, 131);
+            this.m_OpenFileSelector.TabIndex = 0;
+            this.m_OpenFileSelector.Text = "Select file to crosspost";
+            this.m_OpenFileSelector.UseVisualStyleBackColor = false;
+            this.m_OpenFileSelector.Click += new System.EventHandler(this.OpenFileSelector_Click);
             // 
-            // textBox1
+            // m_TitleField
             // 
-            this.textBox1.BackColor = System.Drawing.SystemColors.Info;
-            this.textBox1.Location = new System.Drawing.Point(16, 185);
-            this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(622, 20);
-            this.textBox1.TabIndex = 7;
-            this.textBox1.TextChanged += new System.EventHandler(this.textBox1_LostFocus);
+            this.m_TitleField.BackColor = System.Drawing.SystemColors.Info;
+            this.m_TitleField.Location = new System.Drawing.Point(16, 185);
+            this.m_TitleField.Name = "m_TitleField";
+            this.m_TitleField.Size = new System.Drawing.Size(622, 20);
+            this.m_TitleField.TabIndex = 7;
+            this.m_TitleField.TextChanged += new System.EventHandler(this.TitleField_LostFocus);
             // 
-            // textBox2
+            // m_DescriptionField
             // 
-            this.textBox2.BackColor = System.Drawing.SystemColors.Info;
-            this.textBox2.Location = new System.Drawing.Point(14, 225);
-            this.textBox2.Multiline = true;
-            this.textBox2.Name = "textBox2";
-            this.textBox2.Size = new System.Drawing.Size(621, 215);
-            this.textBox2.TabIndex = 9;
-            this.textBox2.TextChanged += new System.EventHandler(this.textBox2_LostFocus);
+            this.m_DescriptionField.BackColor = System.Drawing.SystemColors.Info;
+            this.m_DescriptionField.Location = new System.Drawing.Point(14, 225);
+            this.m_DescriptionField.Multiline = true;
+            this.m_DescriptionField.Name = "m_DescriptionField";
+            this.m_DescriptionField.Size = new System.Drawing.Size(621, 215);
+            this.m_DescriptionField.TabIndex = 9;
+            this.m_DescriptionField.TextChanged += new System.EventHandler(this.DescriptionField_LostFocus);
             // 
             // label3
             // 
@@ -97,53 +99,53 @@
             this.label4.TabIndex = 6;
             this.label4.Text = "Title Field";
             // 
-            // radioButton5
+            // m_ContentRatingG
             // 
-            this.radioButton5.AutoSize = true;
-            this.radioButton5.Location = new System.Drawing.Point(330, 150);
-            this.radioButton5.Name = "radioButton5";
-            this.radioButton5.Size = new System.Drawing.Size(33, 17);
-            this.radioButton5.TabIndex = 1;
-            this.radioButton5.TabStop = true;
-            this.radioButton5.Text = "G";
-            this.radioButton5.UseVisualStyleBackColor = true;
-            this.radioButton5.CheckedChanged += new System.EventHandler(this.radioButton5_CheckedChanged);
+            this.m_ContentRatingG.AutoSize = true;
+            this.m_ContentRatingG.Location = new System.Drawing.Point(330, 150);
+            this.m_ContentRatingG.Name = "m_ContentRatingG";
+            this.m_ContentRatingG.Size = new System.Drawing.Size(33, 17);
+            this.m_ContentRatingG.TabIndex = 1;
+            this.m_ContentRatingG.TabStop = true;
+            this.m_ContentRatingG.Text = "G";
+            this.m_ContentRatingG.UseVisualStyleBackColor = true;
+            this.m_ContentRatingG.CheckedChanged += new System.EventHandler(this.ContentRating_CheckedChanged);
             // 
-            // radioButton6
+            // m_ContentRatingT
             // 
-            this.radioButton6.AutoSize = true;
-            this.radioButton6.Location = new System.Drawing.Point(369, 149);
-            this.radioButton6.Name = "radioButton6";
-            this.radioButton6.Size = new System.Drawing.Size(32, 17);
-            this.radioButton6.TabIndex = 2;
-            this.radioButton6.TabStop = true;
-            this.radioButton6.Text = "T";
-            this.radioButton6.UseVisualStyleBackColor = true;
-            this.radioButton6.CheckedChanged += new System.EventHandler(this.radioButton6_CheckedChanged);
+            this.m_ContentRatingT.AutoSize = true;
+            this.m_ContentRatingT.Location = new System.Drawing.Point(369, 149);
+            this.m_ContentRatingT.Name = "m_ContentRatingT";
+            this.m_ContentRatingT.Size = new System.Drawing.Size(32, 17);
+            this.m_ContentRatingT.TabIndex = 2;
+            this.m_ContentRatingT.TabStop = true;
+            this.m_ContentRatingT.Text = "T";
+            this.m_ContentRatingT.UseVisualStyleBackColor = true;
+            this.m_ContentRatingT.CheckedChanged += new System.EventHandler(this.ContentRatingT_CheckedChanged);
             // 
-            // radioButton7
+            // m_ContentRatingM
             // 
-            this.radioButton7.AutoSize = true;
-            this.radioButton7.Location = new System.Drawing.Point(407, 149);
-            this.radioButton7.Name = "radioButton7";
-            this.radioButton7.Size = new System.Drawing.Size(34, 17);
-            this.radioButton7.TabIndex = 3;
-            this.radioButton7.TabStop = true;
-            this.radioButton7.Text = "M";
-            this.radioButton7.UseVisualStyleBackColor = true;
-            this.radioButton7.CheckedChanged += new System.EventHandler(this.radioButton7_CheckedChanged);
+            this.m_ContentRatingM.AutoSize = true;
+            this.m_ContentRatingM.Location = new System.Drawing.Point(407, 149);
+            this.m_ContentRatingM.Name = "m_ContentRatingM";
+            this.m_ContentRatingM.Size = new System.Drawing.Size(34, 17);
+            this.m_ContentRatingM.TabIndex = 3;
+            this.m_ContentRatingM.TabStop = true;
+            this.m_ContentRatingM.Text = "M";
+            this.m_ContentRatingM.UseVisualStyleBackColor = true;
+            this.m_ContentRatingM.CheckedChanged += new System.EventHandler(this.ContentRatingM_CheckedChanged);
             // 
-            // radioButton8
+            // m_ContentRatingA
             // 
-            this.radioButton8.AutoSize = true;
-            this.radioButton8.Location = new System.Drawing.Point(447, 149);
-            this.radioButton8.Name = "radioButton8";
-            this.radioButton8.Size = new System.Drawing.Size(32, 17);
-            this.radioButton8.TabIndex = 4;
-            this.radioButton8.TabStop = true;
-            this.radioButton8.Text = "A";
-            this.radioButton8.UseVisualStyleBackColor = true;
-            this.radioButton8.CheckedChanged += new System.EventHandler(this.radioButton8_CheckedChanged);
+            this.m_ContentRatingA.AutoSize = true;
+            this.m_ContentRatingA.Location = new System.Drawing.Point(447, 149);
+            this.m_ContentRatingA.Name = "m_ContentRatingA";
+            this.m_ContentRatingA.Size = new System.Drawing.Size(32, 17);
+            this.m_ContentRatingA.TabIndex = 4;
+            this.m_ContentRatingA.TabStop = true;
+            this.m_ContentRatingA.Text = "A";
+            this.m_ContentRatingA.UseVisualStyleBackColor = true;
+            this.m_ContentRatingA.CheckedChanged += new System.EventHandler(this.ContentRatingA_CheckedChanged);
             // 
             // label2
             // 
@@ -155,24 +157,24 @@
             this.label2.TabIndex = 5;
             this.label2.Text = "Content Rating :";
             // 
-            // pictureBox1
+            // m_ImagePreview
             // 
-            this.pictureBox1.BackColor = System.Drawing.SystemColors.ActiveCaptionText;
-            this.pictureBox1.Location = new System.Drawing.Point(485, 14);
-            this.pictureBox1.Name = "pictureBox1";
-            this.pictureBox1.Size = new System.Drawing.Size(153, 153);
-            this.pictureBox1.TabIndex = 10;
-            this.pictureBox1.TabStop = false;
-            this.pictureBox1.Click += new System.EventHandler(this.pictureBox1_Click);
+            this.m_ImagePreview.BackColor = System.Drawing.SystemColors.ActiveCaptionText;
+            this.m_ImagePreview.Location = new System.Drawing.Point(485, 14);
+            this.m_ImagePreview.Name = "m_ImagePreview";
+            this.m_ImagePreview.Size = new System.Drawing.Size(153, 153);
+            this.m_ImagePreview.TabIndex = 10;
+            this.m_ImagePreview.TabStop = false;
+            this.m_ImagePreview.Click += new System.EventHandler(this.ImagePreview_Click);
             // 
-            // textBox3
+            // m_TagsField
             // 
-            this.textBox3.BackColor = System.Drawing.SystemColors.Info;
-            this.textBox3.Location = new System.Drawing.Point(16, 459);
-            this.textBox3.Name = "textBox3";
-            this.textBox3.Size = new System.Drawing.Size(622, 20);
-            this.textBox3.TabIndex = 12;
-            this.textBox3.LostFocus += new System.EventHandler(this.textBox3_LostFocus);
+            this.m_TagsField.BackColor = System.Drawing.SystemColors.Info;
+            this.m_TagsField.Location = new System.Drawing.Point(16, 459);
+            this.m_TagsField.Name = "m_TagsField";
+            this.m_TagsField.Size = new System.Drawing.Size(622, 20);
+            this.m_TagsField.TabIndex = 12;
+            this.m_TagsField.LostFocus += new System.EventHandler(this.TagsField_LostFocus);
             // 
             // label1
             // 
@@ -183,114 +185,125 @@
             this.label1.TabIndex = 11;
             this.label1.Text = "Tags Field";
             // 
-            // checkBox1
+            // m_ArtPageDA
             // 
-            this.checkBox1.AutoSize = true;
-            this.checkBox1.BackColor = System.Drawing.SystemColors.Info;
-            this.checkBox1.CheckAlign = System.Drawing.ContentAlignment.BottomCenter;
-            this.checkBox1.Location = new System.Drawing.Point(16, 485);
-            this.checkBox1.Name = "checkBox1";
-            this.checkBox1.Size = new System.Drawing.Size(26, 31);
-            this.checkBox1.TabIndex = 14;
-            this.checkBox1.Text = "DA";
-            this.checkBox1.UseVisualStyleBackColor = false;
+            this.m_ArtPageDA.AutoSize = true;
+            this.m_ArtPageDA.BackColor = System.Drawing.SystemColors.Info;
+            this.m_ArtPageDA.CheckAlign = System.Drawing.ContentAlignment.BottomCenter;
+            this.m_ArtPageDA.Location = new System.Drawing.Point(3, 3);
+            this.m_ArtPageDA.Name = "m_ArtPageDA";
+            this.m_ArtPageDA.Size = new System.Drawing.Size(26, 31);
+            this.m_ArtPageDA.TabIndex = 14;
+            this.m_ArtPageDA.Text = "DA";
+            this.m_ArtPageDA.UseVisualStyleBackColor = false;
             // 
-            // checkBox2
+            // m_ArtPageFA
             // 
-            this.checkBox2.AutoSize = true;
-            this.checkBox2.BackColor = System.Drawing.SystemColors.Info;
-            this.checkBox2.CheckAlign = System.Drawing.ContentAlignment.BottomCenter;
-            this.checkBox2.Location = new System.Drawing.Point(48, 485);
-            this.checkBox2.Name = "checkBox2";
-            this.checkBox2.Size = new System.Drawing.Size(56, 31);
-            this.checkBox2.TabIndex = 15;
-            this.checkBox2.Text = "Furaffinity";
-            this.checkBox2.UseVisualStyleBackColor = false;
+            this.m_ArtPageFA.AutoSize = true;
+            this.m_ArtPageFA.BackColor = System.Drawing.SystemColors.Info;
+            this.m_ArtPageFA.CheckAlign = System.Drawing.ContentAlignment.BottomCenter;
+            this.m_ArtPageFA.Location = new System.Drawing.Point(35, 3);
+            this.m_ArtPageFA.Name = "m_ArtPageFA";
+            this.m_ArtPageFA.Size = new System.Drawing.Size(56, 31);
+            this.m_ArtPageFA.TabIndex = 15;
+            this.m_ArtPageFA.Text = "Furaffinity";
+            this.m_ArtPageFA.UseVisualStyleBackColor = false;
             // 
-            // checkBox6
+            // m_ArtPageWeasyl
             // 
-            this.checkBox6.AutoSize = true;
-            this.checkBox6.BackColor = System.Drawing.SystemColors.Info;
-            this.checkBox6.CheckAlign = System.Drawing.ContentAlignment.BottomCenter;
-            this.checkBox6.Location = new System.Drawing.Point(163, 485);
-            this.checkBox6.Name = "checkBox6";
-            this.checkBox6.Size = new System.Drawing.Size(46, 31);
-            this.checkBox6.TabIndex = 19;
-            this.checkBox6.Text = "Weasyl";
-            this.checkBox6.UseVisualStyleBackColor = false;
+            this.m_ArtPageWeasyl.AutoSize = true;
+            this.m_ArtPageWeasyl.BackColor = System.Drawing.SystemColors.Info;
+            this.m_ArtPageWeasyl.CheckAlign = System.Drawing.ContentAlignment.BottomCenter;
+            this.m_ArtPageWeasyl.Location = new System.Drawing.Point(150, 3);
+            this.m_ArtPageWeasyl.Name = "m_ArtPageWeasyl";
+            this.m_ArtPageWeasyl.Size = new System.Drawing.Size(46, 31);
+            this.m_ArtPageWeasyl.TabIndex = 19;
+            this.m_ArtPageWeasyl.Text = "Weasyl";
+            this.m_ArtPageWeasyl.UseVisualStyleBackColor = false;
             // 
-            // button2
+            // m_GenerateTests
             // 
-            this.button2.BackColor = System.Drawing.SystemColors.Control;
-            this.button2.Location = new System.Drawing.Point(16, 522);
-            this.button2.Name = "button2";
-            this.button2.Size = new System.Drawing.Size(619, 70);
-            this.button2.TabIndex = 20;
-            this.button2.Text = "Create Selenium Tests!";
-            this.button2.UseVisualStyleBackColor = false;
-            this.button2.Click += new System.EventHandler(this.button2_Click);
+            this.m_GenerateTests.BackColor = System.Drawing.SystemColors.Control;
+            this.m_GenerateTests.Location = new System.Drawing.Point(16, 527);
+            this.m_GenerateTests.Name = "m_GenerateTests";
+            this.m_GenerateTests.Size = new System.Drawing.Size(622, 65);
+            this.m_GenerateTests.TabIndex = 20;
+            this.m_GenerateTests.Text = "Create Selenium Tests!";
+            this.m_GenerateTests.UseVisualStyleBackColor = false;
+            this.m_GenerateTests.Click += new System.EventHandler(this.GenerateTests_Click);
             // 
-            // checkBox4
+            // m_ArtPageSO
             // 
-            this.checkBox4.AutoSize = true;
-            this.checkBox4.BackColor = System.Drawing.SystemColors.Info;
-            this.checkBox4.CheckAlign = System.Drawing.ContentAlignment.BottomCenter;
-            this.checkBox4.Location = new System.Drawing.Point(110, 485);
-            this.checkBox4.Name = "checkBox4";
-            this.checkBox4.Size = new System.Drawing.Size(47, 31);
-            this.checkBox4.TabIndex = 17;
-            this.checkBox4.Text = "SoFurry";
-            this.checkBox4.UseVisualStyleBackColor = false;
+            this.m_ArtPageSO.AutoSize = true;
+            this.m_ArtPageSO.BackColor = System.Drawing.SystemColors.Info;
+            this.m_ArtPageSO.CheckAlign = System.Drawing.ContentAlignment.BottomCenter;
+            this.m_ArtPageSO.Location = new System.Drawing.Point(97, 3);
+            this.m_ArtPageSO.Name = "m_ArtPageSO";
+            this.m_ArtPageSO.Size = new System.Drawing.Size(47, 31);
+            this.m_ArtPageSO.TabIndex = 17;
+            this.m_ArtPageSO.Text = "SoFurry";
+            this.m_ArtPageSO.UseVisualStyleBackColor = false;
+            // 
+            // m_ArtSitesFlowPanel
+            // 
+            this.m_ArtSitesFlowPanel.Controls.Add(this.m_ArtPageDA);
+            this.m_ArtSitesFlowPanel.Controls.Add(this.m_ArtPageFA);
+            this.m_ArtSitesFlowPanel.Controls.Add(this.m_ArtPageSO);
+            this.m_ArtSitesFlowPanel.Controls.Add(this.m_ArtPageWeasyl);
+            this.m_ArtSitesFlowPanel.Location = new System.Drawing.Point(16, 485);
+            this.m_ArtSitesFlowPanel.Name = "m_ArtSitesFlowPanel";
+            this.m_ArtSitesFlowPanel.Size = new System.Drawing.Size(622, 36);
+            this.m_ArtSitesFlowPanel.TabIndex = 21;
             // 
             // ArtUploaderForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(647, 604);
-            this.Controls.Add(this.button2);
-            this.Controls.Add(this.checkBox6);
-            this.Controls.Add(this.checkBox4);
-            this.Controls.Add(this.checkBox2);
-            this.Controls.Add(this.checkBox1);
-            this.Controls.Add(this.textBox3);
+            this.Controls.Add(this.m_ArtSitesFlowPanel);
+            this.Controls.Add(this.m_GenerateTests);
+            this.Controls.Add(this.m_TagsField);
             this.Controls.Add(this.label1);
-            this.Controls.Add(this.pictureBox1);
-            this.Controls.Add(this.textBox2);
+            this.Controls.Add(this.m_ImagePreview);
+            this.Controls.Add(this.m_DescriptionField);
             this.Controls.Add(this.label3);
-            this.Controls.Add(this.textBox1);
+            this.Controls.Add(this.m_TitleField);
             this.Controls.Add(this.label4);
             this.Controls.Add(this.label2);
-            this.Controls.Add(this.radioButton8);
-            this.Controls.Add(this.radioButton7);
-            this.Controls.Add(this.radioButton6);
-            this.Controls.Add(this.radioButton5);
-            this.Controls.Add(this.button1);
+            this.Controls.Add(this.m_ContentRatingA);
+            this.Controls.Add(this.m_ContentRatingM);
+            this.Controls.Add(this.m_ContentRatingT);
+            this.Controls.Add(this.m_ContentRatingG);
+            this.Controls.Add(this.m_OpenFileSelector);
             this.Name = "ArtUploaderForm";
             this.Text = "ArtUploaderForm";
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.m_ImagePreview)).EndInit();
+            this.m_ArtSitesFlowPanel.ResumeLayout(false);
+            this.m_ArtSitesFlowPanel.PerformLayout();
             this.ResumeLayout(false);
             this.PerformLayout();
 
         }
 
         #endregion
-        private System.Windows.Forms.Button button1;
-        private System.Windows.Forms.TextBox textBox1;
-        private System.Windows.Forms.TextBox textBox2;
+        private System.Windows.Forms.Button m_OpenFileSelector;
+        private System.Windows.Forms.TextBox m_TitleField;
+        private System.Windows.Forms.TextBox m_DescriptionField;
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.Label label4;
-        private System.Windows.Forms.RadioButton radioButton5;
-        private System.Windows.Forms.RadioButton radioButton6;
-        private System.Windows.Forms.RadioButton radioButton7;
-        private System.Windows.Forms.RadioButton radioButton8;
+        private System.Windows.Forms.RadioButton m_ContentRatingG;
+        private System.Windows.Forms.RadioButton m_ContentRatingT;
+        private System.Windows.Forms.RadioButton m_ContentRatingM;
+        private System.Windows.Forms.RadioButton m_ContentRatingA;
         private System.Windows.Forms.Label label2;
-        private System.Windows.Forms.PictureBox pictureBox1;
-        private System.Windows.Forms.TextBox textBox3;
+        private System.Windows.Forms.PictureBox m_ImagePreview;
+        private System.Windows.Forms.TextBox m_TagsField;
         private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.CheckBox checkBox1;
-        private System.Windows.Forms.CheckBox checkBox2;
-        private System.Windows.Forms.CheckBox checkBox6;
-        private System.Windows.Forms.Button button2;
-        private System.Windows.Forms.CheckBox checkBox4;
+        private System.Windows.Forms.CheckBox m_ArtPageDA;
+        private System.Windows.Forms.CheckBox m_ArtPageFA;
+        private System.Windows.Forms.CheckBox m_ArtPageWeasyl;
+        private System.Windows.Forms.Button m_GenerateTests;
+        private System.Windows.Forms.CheckBox m_ArtPageSO;
+        private System.Windows.Forms.FlowLayoutPanel m_ArtSitesFlowPanel;
     }
 }
